@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-partial class AISisterAIChanGhost : Ghost
+partial class AINanikaAIChanGhost : Ghost
 {
 
     private string OpenMenu()
