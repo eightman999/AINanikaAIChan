@@ -55,7 +55,7 @@ public class SaveData : BaseSaveData {
     /// </summary>
     public SaveData()
     {
-        UserName = "お兄ちゃん";
+        UserName = "後輩くん";
         TalkInterval = 300;
     }
 }
