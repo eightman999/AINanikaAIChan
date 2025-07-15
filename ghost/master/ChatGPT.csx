@@ -9,7 +9,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-public class ChatGPTTalk
+public interface IAITalk
+{
+    string Response { get; }
+    bool IsProcessing { get; }
+}
+
+public class ChatGPTTalk : IAITalk
 {
     public string Response { get; private set; } = string.Empty;
     public bool IsProcessing { get; private set; }
@@ -63,6 +69,95 @@ public class ChatGPTTalk
             }
         }
         catch (Exception e)
+        {
+            Response = e.ToString();
+        }
+        finally
+        {
+            IsProcessing = false;
+        }
+    }
+}
+
+public class ClaudeTalk : IAITalk
+{
+    public string Response { get; private set; } = string.Empty;
+    public bool IsProcessing { get; private set; }
+
+    public ClaudeTalk(string apiKey, string prompt)
+    {
+        _ = Process(apiKey, prompt);
+    }
+
+    async Task Process(string apiKey, string prompt)
+    {
+        IsProcessing = true;
+        try
+        {
+            var endpoint = "https://api.anthropic.com/v1/complete";
+            var obj = new
+            {
+                prompt = prompt,
+                model = "claude-instant-1",
+                max_tokens_to_sample = 1024,
+                stream = false
+            };
+            var json = JsonConvert.SerializeObject(obj);
+            using(var request = new HttpRequestMessage(HttpMethod.Post, endpoint))
+            {
+                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                request.Headers.Add("X-API-Key", apiKey);
+                request.Headers.Add("anthropic-version", "2023-06-01");
+                var client = new HttpClient();
+                var response = await client.SendAsync(request);
+                var str = await response.Content.ReadAsStringAsync();
+                dynamic res = JsonConvert.DeserializeObject(str);
+                Response = res?.completion ?? str;
+            }
+        }
+        catch(Exception e)
+        {
+            Response = e.ToString();
+        }
+        finally
+        {
+            IsProcessing = false;
+        }
+    }
+}
+
+public class GeminiTalk : IAITalk
+{
+    public string Response { get; private set; } = string.Empty;
+    public bool IsProcessing { get; private set; }
+
+    public GeminiTalk(string apiKey, string prompt)
+    {
+        _ = Process(apiKey, prompt);
+    }
+
+    async Task Process(string apiKey, string prompt)
+    {
+        IsProcessing = true;
+        try
+        {
+            var endpoint = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={apiKey}";
+            var obj = new
+            {
+                contents = new[] { new { parts = new[] { new { text = prompt } } } }
+            };
+            var json = JsonConvert.SerializeObject(obj);
+            using(var request = new HttpRequestMessage(HttpMethod.Post, endpoint))
+            {
+                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                var client = new HttpClient();
+                var response = await client.SendAsync(request);
+                var str = await response.Content.ReadAsStringAsync();
+                dynamic res = JsonConvert.DeserializeObject(str);
+                Response = res?.candidates?[0]?.content?.parts?[0]?.text ?? str;
+            }
+        }
+        catch(Exception e)
         {
             Response = e.ToString();
         }

@@ -24,7 +24,7 @@ partial class AISisterAIChanGhost : Ghost
 
     Random random = new Random();
     bool isTalking = false;
-    ChatGPTTalk chatGPTTalk = null;
+    IAITalk chatGPTTalk = null;
     string messageLog = "";
     double faceRate = 0;
     bool isNademachi = false;
@@ -205,20 +205,32 @@ partial class AISisterAIChanGhost : Ghost
         if (((SaveData)SaveData).IsDevMode)
             Log.WriteAllText(Log.Prompt, prompt);
 
-        var request = new ChatGPTRequest()
+        var provider = ((SaveData)SaveData).AIProvider;
+        if(provider == "ChatGPT")
         {
-            stream = true,
-            model = "gpt-3.5-turbo",
-            messages = new ChatGPTMessage[]
+            var request = new ChatGPTRequest()
             {
-                new ChatGPTMessage()
+                stream = true,
+                model = "gpt-3.5-turbo",
+                messages = new ChatGPTMessage[]
                 {
-                    role = "user",
-                    content = prompt
-                },
-            }
-        };
-        chatGPTTalk = new ChatGPTTalk(((SaveData)SaveData).APIKey, request);
+                    new ChatGPTMessage()
+                    {
+                        role = "user",
+                        content = prompt
+                    },
+                }
+            };
+            chatGPTTalk = new ChatGPTTalk(((SaveData)SaveData).APIKey, request);
+        }
+        else if(provider == "Claude")
+        {
+            chatGPTTalk = new ClaudeTalk(((SaveData)SaveData).ClaudeAPIKey, prompt);
+        }
+        else
+        {
+            chatGPTTalk = new GeminiTalk(((SaveData)SaveData).GeminiAPIKey, prompt);
+        }
     }
 
     public override string OnSurfaceRestore(IDictionary<int, string> reference, string sakuraSurface, string keroSurface)
