@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-partial class AISisterAIChanGhost : Ghost
+partial class AINanikaAIChanGhost : Ghost
 {
     public override string OnBoot(IDictionary<int, string> references, string shellName = "", bool isHalt = false, string haltGhostName = "")
     {

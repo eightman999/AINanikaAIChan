@@ -17,7 +17,7 @@ using System.IO;
 using Shiorose.Resource.ShioriEvent;
 using System.Text.RegularExpressions;
 
-partial class AISisterAIChanGhost : Ghost
+partial class AINanikaAIChanGhost : Ghost
 {
     const string AIName = "アイ";
     const string USERName = "兄";//TODO: ベースクラスGhostにUserNameが定義されているので、そちらを活用するようにすると良いかもしれない。変数を利用するときはUSERNameとUserNameの違いに注意。
@@ -28,7 +28,7 @@ partial class AISisterAIChanGhost : Ghost
     string messageLog = "";
     double faceRate = 0;
     bool isNademachi = false;
-    public AISisterAIChanGhost()
+    public AINanikaAIChanGhost()
     {
         // 更新URL
         Homeurl = "https://manjubox.net/Install/ai_sister_ai_chan/";
@@ -38,7 +38,7 @@ partial class AISisterAIChanGhost : Ghost
 
         SettingRandomTalk();
 
-        Resource.SakuraPortalButtonCaption = () => "AI妹アイちゃん";
+        Resource.SakuraPortalButtonCaption = () => "AI何かちゃん";
         SakuraPortalSites.Add(new Site("配布ページ", "https://manjubox.net/ai_sister_ai_chan/"));
         SakuraPortalSites.Add(new Site("ソースコード", "https://github.com/manju-summoner/AISisterAIChan"));
 
@@ -464,4 +464,4 @@ partial class AISisterAIChanGhost : Ghost
     }
 }
 
-return new AISisterAIChanGhost();
+return new AINanikaAIChanGhost();

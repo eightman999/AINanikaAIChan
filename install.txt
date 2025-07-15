@@ -1,6 +1,6 @@
 charset,UTF8
 
 type,ghost
-name,AI妹アイちゃん
+name,AI何かちゃん
 directory,ai_sister_ai_chan
 
