@@ -3,3 +3,6 @@ shell/master/profile/
 ghost/master/savedata.json
 ghost/master/log/
 .vs/
+.mcp.json
+MacUkagaka/.build/
+MacUkagaka/.swiftpm/
