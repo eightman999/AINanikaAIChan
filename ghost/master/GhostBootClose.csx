@@ -14,14 +14,14 @@ partial class AINanikaAIChanGhost : Ghost
     public override string OnBoot(IDictionary<int, string> references, string shellName = "", bool isHalt = false, string haltGhostName = "")
     {
         return new TalkBuilder()
-        .AppendLine("おかえり、おにいちゃん。")
+        .AppendLine("おかえり、後輩くん。")
         .BuildWithAutoWait();
     }
 
     public override string OnFirstBoot(IDictionary<int, string> reference, int vanishCount = 0)
     {
         return new TalkBuilder()
-        .AppendLine("おかえり、おにいちゃん。")
+        .AppendLine("おかえり、後輩くん。")
         .BuildWithAutoWait();
     }
 
@@ -29,7 +29,7 @@ partial class AINanikaAIChanGhost : Ghost
     {
         return 
         new TalkBuilder()
-        .Append("また話そうね、おにいちゃん。")
+        .Append("また話そうね、後輩くん。")
         .EmbedValue("\\-")
         .BuildWithAutoWait();
     }

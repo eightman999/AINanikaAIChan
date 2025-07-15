@@ -103,7 +103,7 @@ partial class AINanikaAIChanGhost : Ghost
     private string ChangeAPIKeyTalk(string provider){
         var save = (SaveData)SaveData;
         string defValue = provider == "ChatGPT" ? save.APIKey : provider == "Claude" ? save.ClaudeAPIKey : save.GeminiAPIKey;
-        return new TalkBuilder().Append($"{provider}のAPIキーを入力してね、おにいちゃん。")
+        return new TalkBuilder().Append($"{provider}のAPIキーを入力してくれ、後輩くん。")
                                 .AppendPassInput(defValue:defValue)
                                 .Build()
                                 .ContinueWith(apiKey=>
@@ -111,7 +111,7 @@ partial class AINanikaAIChanGhost : Ghost
                                     if(provider == "ChatGPT") save.APIKey = apiKey;
                                     else if(provider == "Claude") save.ClaudeAPIKey = apiKey;
                                     else if(provider == "Gemini") save.GeminiAPIKey = apiKey;
-                                    return new TalkBuilder().Append("設定が終わったよ、おにいちゃん。").BuildWithAutoWait();
+                                    return new TalkBuilder().Append("設定が終わったよ、後輩くん。").BuildWithAutoWait();
                                 });
     }
 
@@ -134,7 +134,7 @@ partial class AINanikaAIChanGhost : Ghost
                 if(id == BACK)
                     return ChangeAPITalk();
                 ((SaveData)SaveData).AIProvider = id;
-                return new TalkBuilder().Append("設定したよ、おにいちゃん。").BuildWithAutoWait();
+                return new TalkBuilder().Append("設定したよ、後輩くん。").BuildWithAutoWait();
             });
     }
 
@@ -246,7 +246,7 @@ partial class AINanikaAIChanGhost : Ghost
         return new TalkBuilder().Append("どっちのプロフィールを変更する？").LineFeed()
                                 .HalfLine()
                                 .Marker().AppendChoice("アイ").LineFeed()
-                                .Marker().AppendChoice("おにいちゃん").LineFeed()
+                                .Marker().AppendChoice("後輩くん").LineFeed()
                                 .HalfLine()
                                 .Marker().AppendChoice("戻る")
                                 .Build()
@@ -255,9 +255,9 @@ partial class AINanikaAIChanGhost : Ghost
                                     switch(id)
                                     {
                                         case "アイ":
-                                            return ChangeProfileDictionaryTalk(((SaveData)SaveData).AiProfile, "わたし");
-                                        case "おにいちゃん":
-                                            return ChangeProfileDictionaryTalk(((SaveData)SaveData).UserProfile, "おにいちゃん");
+                                            return ChangeProfileDictionaryTalk(((SaveData)SaveData).AiProfile, "私");
+                                        case "後輩くん":
+                                            return ChangeProfileDictionaryTalk(((SaveData)SaveData).UserProfile, "後輩くん");
                                         default:
                                             return OpenMenu();
                                     }
@@ -318,7 +318,7 @@ partial class AINanikaAIChanGhost : Ghost
                                 {
                                     if(id != "戻る")
                                         profile[key] = id;
-                                    return ChangeProfileDictionaryTalk(profile, profile == ((SaveData)SaveData).AiProfile ? "わたし" : "おにいちゃん");
+                                    return ChangeProfileDictionaryTalk(profile, profile == ((SaveData)SaveData).AiProfile ? "私" : "後輩くん");
                                 });
     }
     private string AddProfileTalk(Dictionary<string,string> profile, string targetName)
@@ -333,7 +333,7 @@ partial class AINanikaAIChanGhost : Ghost
                                     if(id != "戻る")
                                         return ChangeProfileDetailTalk(profile, id);
                                     else
-                                        return ChangeProfileDictionaryTalk(profile, profile == ((SaveData)SaveData).AiProfile ? "アイ" : "おにいちゃん");
+                                        return ChangeProfileDictionaryTalk(profile, profile == ((SaveData)SaveData).AiProfile ? "アイ" : "後輩くん");
                                 });
     }
     private string TrimLength(string text, int maxLength){
