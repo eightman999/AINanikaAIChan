@@ -15,8 +15,12 @@ partial class AISisterAIChanGhost : Ghost
 
     private string OpenMenu()
     {
-        if(string.IsNullOrEmpty(((SaveData)SaveData).APIKey))
-            return ChangeOpenAIAPITalk();
+        var provider = ((SaveData)SaveData).AIProvider;
+        var save = (SaveData)SaveData;
+        if((provider == "ChatGPT" && string.IsNullOrEmpty(save.APIKey)) ||
+           (provider == "Claude" && string.IsNullOrEmpty(save.ClaudeAPIKey)) ||
+           (provider == "Gemini" && string.IsNullOrEmpty(save.GeminiAPIKey)))
+            return ChangeAPITalk();
 
         const string RAND = "なにか話して";
         const string COMMUNICATE = "話しかける";
@@ -53,7 +57,7 @@ partial class AISisterAIChanGhost : Ghost
     }
 
     private string SettingsTalk(){
-        const string CHANGE_OPENAI_API = "OpenAIのAPIキーを変更する";
+        const string CHANGE_API_SETTING = "AIサービスの設定を変更する";
         const string CHANGE_RANDOMTALK_INTERVAL = "ランダムトークの頻度を変更する";
         const string CHANGE_CHOICE_COUNT = "選択肢の数を変更する";
         string CHANGE_RANDOM_IDLING_SURFACE = "定期的に身じろぎする（現在："+(((SaveData)SaveData).IsRandomIdlingSurfaceEnabled ? "有効" : "無効")+"）";
@@ -63,7 +67,7 @@ partial class AISisterAIChanGhost : Ghost
         .Append("設定を変更するね。")
         .LineFeed()
         .HalfLine()
-        .Marker().AppendChoice(CHANGE_OPENAI_API).LineFeed()
+        .Marker().AppendChoice(CHANGE_API_SETTING).LineFeed()
         .HalfLine()
         .Marker().AppendChoice(CHANGE_RANDOMTALK_INTERVAL).LineFeed()
         .Marker().AppendChoice(CHANGE_CHOICE_COUNT).LineFeed()
@@ -75,8 +79,8 @@ partial class AISisterAIChanGhost : Ghost
         .BuildWithAutoWait()
         .ContinueWith(id=>
         {
-            if (id == CHANGE_OPENAI_API)
-                return ChangeOpenAIAPITalk();
+            if (id == CHANGE_API_SETTING)
+                return ChangeAPITalk();
             else if (id == CHANGE_RANDOMTALK_INTERVAL)
                 return ChangeRandomTalkIntervalTalk();
             else if (id == CHANGE_CHOICE_COUNT)
@@ -96,15 +100,72 @@ partial class AISisterAIChanGhost : Ghost
         });
     }
 
-    private string ChangeOpenAIAPITalk(){
-        return new TalkBuilder().Append("OpenAIのAPIキーを入力してね、おにいちゃん。")
-                                .AppendPassInput(defValue:((SaveData)SaveData).APIKey)
+    private string ChangeAPIKeyTalk(string provider){
+        var save = (SaveData)SaveData;
+        string defValue = provider == "ChatGPT" ? save.APIKey : provider == "Claude" ? save.ClaudeAPIKey : save.GeminiAPIKey;
+        return new TalkBuilder().Append($"{provider}のAPIキーを入力してね、おにいちゃん。")
+                                .AppendPassInput(defValue:defValue)
                                 .Build()
                                 .ContinueWith(apiKey=>
                                 {
-                                    ((SaveData)SaveData).APIKey = apiKey;
+                                    if(provider == "ChatGPT") save.APIKey = apiKey;
+                                    else if(provider == "Claude") save.ClaudeAPIKey = apiKey;
+                                    else if(provider == "Gemini") save.GeminiAPIKey = apiKey;
                                     return new TalkBuilder().Append("設定が終わったよ、おにいちゃん。").BuildWithAutoWait();
                                 });
+    }
+
+    private string ChangeProviderTalk(){
+        const string GPT = "ChatGPT";
+        const string CLAUDE = "Claude";
+        const string GEMINI = "Gemini";
+        const string BACK = "戻る";
+        var current = ((SaveData)SaveData).AIProvider;
+        return new TalkBuilder()
+            .Append($"現在のAIは{current}だよ。どれを使う？").LineFeed()
+            .HalfLine()
+            .Marker().AppendChoice(GPT).LineFeed()
+            .Marker().AppendChoice(CLAUDE).LineFeed()
+            .Marker().AppendChoice(GEMINI).LineFeed()
+            .HalfLine()
+            .Marker().AppendChoice(BACK)
+            .BuildWithAutoWait()
+            .ContinueWith(id=>{
+                if(id == BACK)
+                    return ChangeAPITalk();
+                ((SaveData)SaveData).AIProvider = id;
+                return new TalkBuilder().Append("設定したよ、おにいちゃん。").BuildWithAutoWait();
+            });
+    }
+
+    private string ChangeAPITalk(){
+        const string PROVIDER = "利用するAIを選ぶ";
+        const string KEY_GPT = "ChatGPTのAPIキー";
+        const string KEY_CLAUDE = "ClaudeのAPIキー";
+        const string KEY_GEMINI = "GeminiのAPIキー";
+        const string BACK = "戻る";
+        return new TalkBuilder()
+            .Append("AIサービスの設定を変更するよ。").LineFeed()
+            .HalfLine()
+            .Marker().AppendChoice(PROVIDER).LineFeed()
+            .Marker().AppendChoice(KEY_GPT).LineFeed()
+            .Marker().AppendChoice(KEY_CLAUDE).LineFeed()
+            .Marker().AppendChoice(KEY_GEMINI).LineFeed()
+            .HalfLine()
+            .Marker().AppendChoice(BACK)
+            .BuildWithAutoWait()
+            .ContinueWith(id=>{
+                if(id == PROVIDER)
+                    return ChangeProviderTalk();
+                else if(id == KEY_GPT)
+                    return ChangeAPIKeyTalk("ChatGPT");
+                else if(id == KEY_CLAUDE)
+                    return ChangeAPIKeyTalk("Claude");
+                else if(id == KEY_GEMINI)
+                    return ChangeAPIKeyTalk("Gemini");
+                else
+                    return SettingsTalk();
+            });
     }
 
     private string ChangeRandomTalkIntervalTalk(){

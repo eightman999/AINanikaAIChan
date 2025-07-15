@@ -25,6 +25,15 @@ public class SaveData : BaseSaveData {
     public string APIKey { get; set; }
 
     [DataMember]
+    public string ClaudeAPIKey { get; set; }
+
+    [DataMember]
+    public string GeminiAPIKey { get; set; }
+
+    [DataMember]
+    public string AIProvider { get; set; } = "ChatGPT"; // ChatGPT, Claude, Gemini
+
+    [DataMember]
     public int ChoiceCount { get; set; } = 2;
 
     [DataMember]
