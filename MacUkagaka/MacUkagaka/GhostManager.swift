@@ -25,12 +25,41 @@ class GhostManager {
         case shioriNotFound
         case invalidCharset
         case initializationFailed
+        case bundleResourceNotFound
     }
     
+    // デフォルトイニシャライザ - AINanikaAIChanを読み込む
+    init() throws {
+        self.ghostPath = try Self.getDefaultGhostPath()
+        self.ghostInfo = try loadGhostInfo()
+        self.shioriClient = SHIORIClient(ghostPath: ghostPath, shioriPath: ghostInfo!.shioriPath)
+    }
+    
+    // 既存のイニシャライザ（後方互換性のため）
     init(ghostPath: String) throws {
         self.ghostPath = ghostPath
         self.ghostInfo = try loadGhostInfo()
         self.shioriClient = SHIORIClient(ghostPath: ghostPath, shioriPath: ghostInfo!.shioriPath)
+    }
+    
+    // デフォルトゴーストパスの取得
+    private static func getDefaultGhostPath() throws -> String {
+        // 配布時: アプリケーションバンドル内のリソース
+        if let bundleResourceURL = Bundle.main.resourceURL {
+            let ghostPath = bundleResourceURL.appendingPathComponent("AINanikaAIChan/ghost").path
+            if FileManager.default.fileExists(atPath: ghostPath) {
+                return ghostPath
+            }
+        }
+        
+        // 開発時: プロジェクトルートからの相対パス
+        let currentPath = FileManager.default.currentDirectoryPath
+        let developmentGhostPath = "\(currentPath)/MacUkagaka/Resources/AINanikaAIChan/ghost"
+        if FileManager.default.fileExists(atPath: developmentGhostPath) {
+            return developmentGhostPath
+        }
+        
+        throw GhostError.bundleResourceNotFound
     }
     
     func start() throws {
@@ -136,13 +165,36 @@ class GhostManager {
             }
         }
         
+        // .NET SHIORIの実行ファイルパスを解決
+        let resolvedSHIORIPath = try resolveSHIORIPath()
+        
         return GhostInfo(
             name: name,
             sakuraName: sakuraName,
             keroName: keroName,
-            shioriPath: shioriPath,
+            shioriPath: resolvedSHIORIPath,
             charset: charset
         )
+    }
+    
+    // .NET SHIORIの実行ファイルパスを解決
+    private func resolveSHIORIPath() throws -> String {
+        // 配布時: アプリケーションバンドル内のSHIORIパス
+        if let bundleResourceURL = Bundle.main.resourceURL {
+            let shioriPath = bundleResourceURL.appendingPathComponent("AINanikaAIChan/shiori/MacUkagaka.SHIORI").path
+            if FileManager.default.fileExists(atPath: shioriPath) {
+                return shioriPath
+            }
+        }
+        
+        // 開発時: プロジェクトルートからの相対パス
+        let currentPath = FileManager.default.currentDirectoryPath
+        let developmentSHIORIPath = "\(currentPath)/MacUkagaka/Resources/AINanikaAIChan/shiori/MacUkagaka.SHIORI"
+        if FileManager.default.fileExists(atPath: developmentSHIORIPath) {
+            return developmentSHIORIPath
+        }
+        
+        throw GhostError.shioriNotFound
     }
     
     private func startRandomTalk() {

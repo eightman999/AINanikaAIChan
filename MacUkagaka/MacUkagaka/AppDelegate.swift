@@ -23,15 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func loadGhost() {
-        let ghostPath = findGhostPath()
-        
-        guard let path = ghostPath else {
-            showErrorAndExit("ゴーストが見つかりません")
-            return
-        }
-        
         do {
-            ghostManager = try GhostManager(ghostPath: path)
+            // デフォルトのAINanikaAIChanゴーストを読み込む
+            ghostManager = try GhostManager()
             ghostManager?.delegate = self
             
             characterWindow = CharacterWindowController(ghostManager: ghostManager!)
@@ -43,22 +37,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    private func findGhostPath() -> String? {
-        let currentPath = FileManager.default.currentDirectoryPath
-        let possiblePaths = [
-            "\(currentPath)/ghost/master",
-            "\(currentPath)/../ghost/master",
-            "\(currentPath)/../../ghost/master"
-        ]
-        
-        for path in possiblePaths {
-            if FileManager.default.fileExists(atPath: path) {
-                return path
-            }
-        }
-        
-        return nil
-    }
     
     private func showErrorAndExit(_ message: String) {
         let alert = NSAlert()

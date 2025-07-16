@@ -16,7 +16,7 @@ let package = Package(
             dependencies: [],
             path: "MacUkagaka",
             resources: [
-                .process("Resources")
+                .copy("Resources/AINanikaAIChan")
             ]
         )
     ]
