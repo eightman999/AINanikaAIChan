@@ -34,7 +34,7 @@ swift build
 
 ## 使用方法
 
-1. ゴーストとシェルデータを配置
+1. ゴーストとシェルデータを配置し、`ghost/master/descript.txt` の `shiori` 行を `MacUkagaka.SHIORI.dll` に変更
 2. アプリケーションを実行
 
 ```bash
