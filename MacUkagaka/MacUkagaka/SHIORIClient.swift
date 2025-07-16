@@ -34,6 +34,9 @@ class SHIORIClient {
             try startDotNetScript()
         } else if shioriPath.hasSuffix(".py") {
             try startPythonShiori()
+        } else if shioriPath.contains("MacUkagaka.SHIORI") {
+            // 拡張子なしのMacUkagaka.SHIORIファイル
+            try startDotNetCoreShiori()
         } else {
             throw SHIORIError.processNotStarted
         }
@@ -94,9 +97,13 @@ class SHIORIClient {
     }
 
     private func startDotNetCoreShiori() throws {
-        let dllPath = "\(ghostPath)/\(shioriPath)"
-
-        guard FileManager.default.fileExists(atPath: dllPath) else {
+        // shioriPathは既に完全なパスなので、そのまま使用
+        guard FileManager.default.fileExists(atPath: shioriPath) else {
+            throw SHIORIError.processNotStarted
+        }
+        
+        // 実行可能かチェック
+        guard FileManager.default.isExecutableFile(atPath: shioriPath) else {
             throw SHIORIError.processNotStarted
         }
 
@@ -104,8 +111,9 @@ class SHIORIClient {
         inputPipe = Pipe()
         outputPipe = Pipe()
 
-        process?.executableURL = URL(fileURLWithPath: "/usr/local/share/dotnet/dotnet")
-        process?.arguments = [dllPath]
+        // .NET実行ファイルを直接実行
+        process?.executableURL = URL(fileURLWithPath: shioriPath)
+        process?.arguments = []
         process?.currentDirectoryURL = URL(fileURLWithPath: ghostPath)
         process?.standardInput = inputPipe
         process?.standardOutput = outputPipe

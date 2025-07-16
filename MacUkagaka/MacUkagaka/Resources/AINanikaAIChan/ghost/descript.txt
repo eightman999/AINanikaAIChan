@@ -10,4 +10,4 @@ type,ghost
 sakura.name,アイ
 kero.name,kero_name
 
-shiori,SHIOLINK.dll
+shiori,MacUkagaka.SHIORI

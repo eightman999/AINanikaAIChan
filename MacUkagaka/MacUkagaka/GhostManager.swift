@@ -44,6 +44,14 @@ class GhostManager {
     
     // デフォルトゴーストパスの取得
     private static func getDefaultGhostPath() throws -> String {
+        let currentPath = FileManager.default.currentDirectoryPath
+        
+        // 開発時: Swift Package Managerビルド時のリソースパス
+        let buildResourcePath = "\(currentPath)/../.build/x86_64-apple-macosx/debug/MacUkagaka_MacUkagaka.bundle/AINanikaAIChan/ghost"
+        if FileManager.default.fileExists(atPath: buildResourcePath) {
+            return buildResourcePath
+        }
+        
         // 配布時: アプリケーションバンドル内のリソース
         if let bundleResourceURL = Bundle.main.resourceURL {
             let ghostPath = bundleResourceURL.appendingPathComponent("AINanikaAIChan/ghost").path
@@ -53,7 +61,6 @@ class GhostManager {
         }
         
         // 開発時: プロジェクトルートからの相対パス
-        let currentPath = FileManager.default.currentDirectoryPath
         let developmentGhostPath = "\(currentPath)/MacUkagaka/Resources/AINanikaAIChan/ghost"
         if FileManager.default.fileExists(atPath: developmentGhostPath) {
             return developmentGhostPath
@@ -139,7 +146,6 @@ class GhostManager {
         var name = "Unknown Ghost"
         var sakuraName = "さくら"
         var keroName = "うにゅう"
-        var shioriPath = "shiori.exe"
         var charset = "UTF-8"
         
         for line in content.components(separatedBy: .newlines) {
@@ -155,8 +161,6 @@ class GhostManager {
                     sakuraName = value
                 case "kero.name":
                     keroName = value
-                case "shiori":
-                    shioriPath = value
                 case "charset":
                     charset = value
                 default:
@@ -179,6 +183,14 @@ class GhostManager {
     
     // .NET SHIORIの実行ファイルパスを解決
     private func resolveSHIORIPath() throws -> String {
+        let currentPath = FileManager.default.currentDirectoryPath
+        
+        // 開発時: Swift Package Managerビルド時のリソースパス
+        let buildSHIORIPath = "\(currentPath)/../.build/x86_64-apple-macosx/debug/MacUkagaka_MacUkagaka.bundle/AINanikaAIChan/shiori/MacUkagaka.SHIORI"
+        if FileManager.default.fileExists(atPath: buildSHIORIPath) {
+            return buildSHIORIPath
+        }
+        
         // 配布時: アプリケーションバンドル内のSHIORIパス
         if let bundleResourceURL = Bundle.main.resourceURL {
             let shioriPath = bundleResourceURL.appendingPathComponent("AINanikaAIChan/shiori/MacUkagaka.SHIORI").path
@@ -188,7 +200,6 @@ class GhostManager {
         }
         
         // 開発時: プロジェクトルートからの相対パス
-        let currentPath = FileManager.default.currentDirectoryPath
         let developmentSHIORIPath = "\(currentPath)/MacUkagaka/Resources/AINanikaAIChan/shiori/MacUkagaka.SHIORI"
         if FileManager.default.fileExists(atPath: developmentSHIORIPath) {
             return developmentSHIORIPath

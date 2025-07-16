@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {},
-    "net6.0/osx-arm64": {}
+    "net6.0/osx-x64": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
@@ -56,15 +56,11 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Runtime.osx-arm64",
+            "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
             "version": "[6.0.6, 6.0.6]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.osx-arm64",
-            "version": "[6.0.6, 6.0.6]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.osx-arm64",
+            "name": "Microsoft.NETCore.App.Runtime.osx-x64",
             "version": "[6.0.6, 6.0.6]"
           }
         ],
@@ -77,7 +73,7 @@
       }
     },
     "runtimes": {
-      "osx-arm64": {
+      "osx-x64": {
         "#import": []
       }
     }
