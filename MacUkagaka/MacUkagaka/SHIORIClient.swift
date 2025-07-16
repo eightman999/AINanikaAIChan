@@ -32,6 +32,8 @@ class SHIORIClient {
             }
         } else if shioriPath.hasSuffix(".csx") {
             try startDotNetScript()
+        } else if shioriPath.hasSuffix(".py") {
+            try startPythonShiori()
         } else {
             throw SHIORIError.processNotStarted
         }
@@ -140,6 +142,33 @@ class SHIORIClient {
         
         Thread.sleep(forTimeInterval: 1.0)
         
+        guard let proc = process, proc.isRunning else {
+            throw SHIORIError.processNotStarted
+        }
+    }
+
+    private func startPythonShiori() throws {
+        let scriptPath = "\(ghostPath)/\(shioriPath)"
+
+        guard FileManager.default.fileExists(atPath: scriptPath) else {
+            throw SHIORIError.processNotStarted
+        }
+
+        process = Process()
+        inputPipe = Pipe()
+        outputPipe = Pipe()
+
+        process?.executableURL = URL(fileURLWithPath: "/usr/bin/python3")
+        process?.arguments = [scriptPath]
+        process?.currentDirectoryURL = URL(fileURLWithPath: ghostPath)
+        process?.standardInput = inputPipe
+        process?.standardOutput = outputPipe
+        process?.standardError = outputPipe
+
+        try process?.run()
+
+        Thread.sleep(forTimeInterval: 0.5)
+
         guard let proc = process, proc.isRunning else {
             throw SHIORIError.processNotStarted
         }
