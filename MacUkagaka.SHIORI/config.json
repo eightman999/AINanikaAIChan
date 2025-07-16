@@ -1,0 +1,17 @@
+{
+  "ai_settings": {
+    "default_service": "chatgpt",
+    "chatgpt": {
+      "api_key": "",
+      "model": "gpt-3.5-turbo"
+    },
+    "claude": {
+      "api_key": "",
+      "model": "claude-instant-1"
+    },
+    "gemini": {
+      "api_key": "",
+      "model": "gemini-pro"
+    }
+  }
+}
