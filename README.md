@@ -20,12 +20,13 @@ Swift + AppKitで実装され、既存のゴーストとシェルデータを活
 
 **主要機能**:
 - 透明ウィンドウでのキャラクター表示
-- SHIORIプロトコル対応（Python/C#スクリプト実行）
+- SHIORIプロトコル対応（Python、C# など多様なスクリプトを実行可能）
 - SakuraScript基本パーサー
 - バルーン表示機能
 - マウスクリック対応
 
 **詳細ドキュメント**: [MacUkagaka/README.md](MacUkagaka/README.md)
+**SHIORIスクリプト対応一覧**: [SHIORI_SUPPORT.md](SHIORI_SUPPORT.md)
 
 ## ディレクトリ構成
 
