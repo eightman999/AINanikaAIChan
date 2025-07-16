@@ -21,8 +21,12 @@ class SHIORIClient {
     
     func start() throws {
         if shioriPath.hasSuffix(".dll") || shioriPath.hasSuffix(".exe") {
-            if shioriPath.contains("SHIOLINK") {
+            if shioriPath.contains("MacUkagaka.SHIORI") {
+                try startDotNetCoreShiori()
+            } else if shioriPath.contains("SHIOLINK") {
                 try startTestSHIORIScript()
+            } else if shioriPath.hasSuffix(".exe") {
+                try startDotNetShiori()
             } else {
                 throw SHIORIError.processNotStarted
             }
@@ -82,6 +86,33 @@ class SHIORIClient {
         
         Thread.sleep(forTimeInterval: 1.0)
         
+        guard let proc = process, proc.isRunning else {
+            throw SHIORIError.processNotStarted
+        }
+    }
+
+    private func startDotNetCoreShiori() throws {
+        let dllPath = "\(ghostPath)/\(shioriPath)"
+
+        guard FileManager.default.fileExists(atPath: dllPath) else {
+            throw SHIORIError.processNotStarted
+        }
+
+        process = Process()
+        inputPipe = Pipe()
+        outputPipe = Pipe()
+
+        process?.executableURL = URL(fileURLWithPath: "/usr/local/share/dotnet/dotnet")
+        process?.arguments = [dllPath]
+        process?.currentDirectoryURL = URL(fileURLWithPath: ghostPath)
+        process?.standardInput = inputPipe
+        process?.standardOutput = outputPipe
+        process?.standardError = outputPipe
+
+        try process?.run()
+
+        Thread.sleep(forTimeInterval: 1.0)
+
         guard let proc = process, proc.isRunning else {
             throw SHIORIError.processNotStarted
         }
