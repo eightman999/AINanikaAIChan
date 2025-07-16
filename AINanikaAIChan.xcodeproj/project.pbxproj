@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFF492A02E27C98100D93A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FA2E27C98000D93A61 /* AppDelegate.swift */; };
+		DFF492A12E27C98100D93A61 /* CharacterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */; };
+		DFF492A22E27C98100D93A61 /* GhostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FC2E27C98000D93A61 /* GhostManager.swift */; };
+		DFF492A32E27C98100D93A61 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FD2E27C98000D93A61 /* main.swift */; };
+		DFF492A42E27C98100D93A61 /* SakuraScriptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FE2E27C98000D93A61 /* SakuraScriptParser.swift */; };
+		DFF492A52E27C98100D93A61 /* SHIORIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FF2E27C98000D93A61 /* SHIORIClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF44443A2E27C09400F90DF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF4444232E27C08E00F90DF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF44442A2E27C08E00F90DF6;
+			remoteInfo = AINanikaAIChan;
+		};
+		DF4444442E27C09400F90DF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF4444232E27C08E00F90DF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF44442A2E27C08E00F90DF6;
+			remoteInfo = AINanikaAIChan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DF44442B2E27C08E00F90DF6 /* AINanikaAIChan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AINanikaAIChan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF4444392E27C09400F90DF6 /* AINanikaAIChanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AINanikaAIChanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF4444432E27C09400F90DF6 /* AINanikaAIChanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AINanikaAIChanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF491FA2E27C98000D93A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterWindowController.swift; sourceTree = "<group>"; };
+		DFF491FC2E27C98000D93A61 /* GhostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostManager.swift; sourceTree = "<group>"; };
+		DFF491FD2E27C98000D93A61 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DFF491FE2E27C98000D93A61 /* SakuraScriptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SakuraScriptParser.swift; sourceTree = "<group>"; };
+		DFF491FF2E27C98000D93A61 /* SHIORIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHIORIClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DF44443C2E27C09400F90DF6 /* AINanikaAIChanTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AINanikaAIChanTests;
+			sourceTree = "<group>";
+		};
+		DF4444462E27C09400F90DF6 /* AINanikaAIChanUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AINanikaAIChanUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF4444282E27C08E00F90DF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4444362E27C09400F90DF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4444402E27C09400F90DF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF4444222E27C08E00F90DF6 = {
+			isa = PBXGroup;
+			children = (
+				DFF491FA2E27C98000D93A61 /* AppDelegate.swift */,
+				DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */,
+				DFF491FC2E27C98000D93A61 /* GhostManager.swift */,
+				DFF491FD2E27C98000D93A61 /* main.swift */,
+				DFF491FE2E27C98000D93A61 /* SakuraScriptParser.swift */,
+				DFF491FF2E27C98000D93A61 /* SHIORIClient.swift */,
+				DF44443C2E27C09400F90DF6 /* AINanikaAIChanTests */,
+				DF4444462E27C09400F90DF6 /* AINanikaAIChanUITests */,
+				DF44442C2E27C08E00F90DF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DF44442C2E27C08E00F90DF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF44442B2E27C08E00F90DF6 /* AINanikaAIChan.app */,
+				DF4444392E27C09400F90DF6 /* AINanikaAIChanTests.xctest */,
+				DF4444432E27C09400F90DF6 /* AINanikaAIChanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF44442A2E27C08E00F90DF6 /* AINanikaAIChan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF44444D2E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChan" */;
+			buildPhases = (
+				DF4444272E27C08E00F90DF6 /* Sources */,
+				DFF493E82E27CBC100D93A61 /* ShellScript */,
+				DF4444282E27C08E00F90DF6 /* Frameworks */,
+				DF4444292E27C08E00F90DF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AINanikaAIChan;
+			packageProductDependencies = (
+			);
+			productName = AINanikaAIChan;
+			productReference = DF44442B2E27C08E00F90DF6 /* AINanikaAIChan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DF4444382E27C09400F90DF6 /* AINanikaAIChanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF4444502E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChanTests" */;
+			buildPhases = (
+				DF4444352E27C09400F90DF6 /* Sources */,
+				DF4444362E27C09400F90DF6 /* Frameworks */,
+				DF4444372E27C09400F90DF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF44443B2E27C09400F90DF6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DF44443C2E27C09400F90DF6 /* AINanikaAIChanTests */,
+			);
+			name = AINanikaAIChanTests;
+			packageProductDependencies = (
+			);
+			productName = AINanikaAIChanTests;
+			productReference = DF4444392E27C09400F90DF6 /* AINanikaAIChanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DF4444422E27C09400F90DF6 /* AINanikaAIChanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF4444532E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChanUITests" */;
+			buildPhases = (
+				DF44443F2E27C09400F90DF6 /* Sources */,
+				DF4444402E27C09400F90DF6 /* Frameworks */,
+				DF4444412E27C09400F90DF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF4444452E27C09400F90DF6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DF4444462E27C09400F90DF6 /* AINanikaAIChanUITests */,
+			);
+			name = AINanikaAIChanUITests;
+			packageProductDependencies = (
+			);
+			productName = AINanikaAIChanUITests;
+			productReference = DF4444432E27C09400F90DF6 /* AINanikaAIChanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF4444232E27C08E00F90DF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					DF44442A2E27C08E00F90DF6 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DF4444382E27C09400F90DF6 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DF44442A2E27C08E00F90DF6;
+					};
+					DF4444422E27C09400F90DF6 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DF44442A2E27C08E00F90DF6;
+					};
+				};
+			};
+			buildConfigurationList = DF4444262E27C08E00F90DF6 /* Build configuration list for PBXProject "AINanikaAIChan" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF4444222E27C08E00F90DF6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DF44442C2E27C08E00F90DF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF44442A2E27C08E00F90DF6 /* AINanikaAIChan */,
+				DF4444382E27C09400F90DF6 /* AINanikaAIChanTests */,
+				DF4444422E27C09400F90DF6 /* AINanikaAIChanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF4444292E27C08E00F90DF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4444372E27C09400F90DF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4444412E27C09400F90DF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DFF493E82E27CBC100D93A61 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# 出力ディレクトリ作成\n  mkdir -p \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/\"\n\n  # ディレクトリ構造を維持してコピー\n  rsync -a \"${SRCROOT}/ghost/\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/ghost/\"\n  rsync -a \"${SRCROOT}/shell/\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/shell/\"\n  rsync -a \"${SRCROOT}/shiori/\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/shiori/\"\n\n  # SHIORI実行権限付与\n  chmod +x \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/shiori/MacUkagaka.SHIORI\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF4444272E27C08E00F90DF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF492A02E27C98100D93A61 /* AppDelegate.swift in Sources */,
+				DFF492A12E27C98100D93A61 /* CharacterWindowController.swift in Sources */,
+				DFF492A22E27C98100D93A61 /* GhostManager.swift in Sources */,
+				DFF492A32E27C98100D93A61 /* main.swift in Sources */,
+				DFF492A42E27C98100D93A61 /* SakuraScriptParser.swift in Sources */,
+				DFF492A52E27C98100D93A61 /* SHIORIClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4444352E27C09400F90DF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF44443F2E27C09400F90DF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DF44443B2E27C09400F90DF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF44442A2E27C08E00F90DF6 /* AINanikaAIChan */;
+			targetProxy = DF44443A2E27C09400F90DF6 /* PBXContainerItemProxy */;
+		};
+		DF4444452E27C09400F90DF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF44442A2E27C08E00F90DF6 /* AINanikaAIChan */;
+			targetProxy = DF4444442E27C09400F90DF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DF44444B2E27C09400F90DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				"MACOSX_DEPLOYMENT_TARGET[arch=*]" = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DF44444C2E27C09400F90DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				"MACOSX_DEPLOYMENT_TARGET[arch=*]" = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		DF44444E2E27C09400F90DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AINanikaAIChan/AINanikaAIChan.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AINanikaAIChan/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "SHIORIプロセスとの通信に必要です";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DF44444F2E27C09400F90DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AINanikaAIChan/AINanikaAIChan.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AINanikaAIChan/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "SHIORIプロセスとの通信に必要です";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DF4444512E27C09400F90DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AINanikaAIChan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AINanikaAIChan";
+			};
+			name = Debug;
+		};
+		DF4444522E27C09400F90DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AINanikaAIChan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AINanikaAIChan";
+			};
+			name = Release;
+		};
+		DF4444542E27C09400F90DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AINanikaAIChan;
+			};
+			name = Debug;
+		};
+		DF4444552E27C09400F90DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.furinlab.AINanikaAIChanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AINanikaAIChan;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF4444262E27C08E00F90DF6 /* Build configuration list for PBXProject "AINanikaAIChan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF44444B2E27C09400F90DF6 /* Debug */,
+				DF44444C2E27C09400F90DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF44444D2E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF44444E2E27C09400F90DF6 /* Debug */,
+				DF44444F2E27C09400F90DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF4444502E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4444512E27C09400F90DF6 /* Debug */,
+				DF4444522E27C09400F90DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF4444532E27C09400F90DF6 /* Build configuration list for PBXNativeTarget "AINanikaAIChanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4444542E27C09400F90DF6 /* Debug */,
+				DF4444552E27C09400F90DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF4444232E27C08E00F90DF6 /* Project object */;
+}
