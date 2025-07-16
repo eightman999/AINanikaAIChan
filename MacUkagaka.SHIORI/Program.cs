@@ -37,6 +37,11 @@ class Program
             {
                 value = SakuraScriptBuilder.Simple("さようなら！");
             }
+            else if (request.Id == "OnSecondChange")
+            {
+                Console.Write(new SHIORIResponse { Value = string.Empty }.ToString());
+                continue;
+            }
             else if (request.Id == "OnTalk")
             {
                 var prompt = request.GetReference(0) ?? string.Empty;

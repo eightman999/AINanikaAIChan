@@ -39,6 +39,7 @@ class CharacterWindowController: NSWindowController {
         window.backgroundColor = NSColor.clear
         window.isOpaque = false
         window.level = .floating
+        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         window.isMovableByWindowBackground = true
         window.acceptsMouseMovedEvents = true
         window.ignoresMouseEvents = false
@@ -54,6 +55,7 @@ class CharacterWindowController: NSWindowController {
         characterImageView.imageScaling = .scaleNone
         characterImageView.imageAlignment = .alignCenter
         characterImageView.wantsLayer = true
+        characterImageView.layer?.backgroundColor = NSColor.clear.cgColor
         
         let trackingArea = NSTrackingArea(
             rect: characterImageView.bounds,
