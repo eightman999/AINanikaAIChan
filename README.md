@@ -1,7 +1,5 @@
 # AI何かちゃん & MacUkagaka
 
-![動画](./aisisteraichan.gif)
-
 ## プロジェクト概要
 
 このリポジトリには2つの主要なプロジェクトが含まれています：
@@ -92,3 +90,16 @@ Unix系では `./geminicli.sh`、Windowsでは `geminicli.bat` を実行する�
 
 API キーを環境変数 `GEMINI_API_KEY` に設定している場合は `--api-key` オプションを省略できます。
 実行時にコンソール操作の許可を確認するプロンプトが表示され、`y` を入力すると送信が行われます。
+
+## MacUkagaka.SHIORI (.NET Core)
+
+`MacUkagaka.SHIORI` ディレクトリには、macOS でも動作する C# 製 SHIORI の実装を配置しています。
+以下のようにビルドして実行できます。
+
+```bash
+dotnet build MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj
+cd MacUkagaka.SHIORI
+dotnet run
+```
+
+設定ファイル `config.json` に各 AI サービスの API キーとモデル名を記述してください。
