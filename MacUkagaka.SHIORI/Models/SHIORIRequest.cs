@@ -14,10 +14,25 @@ public class SHIORIRequest
     {
         var req = new SHIORIRequest();
         var lines = text.Split('\n');
+        bool firstLine = true;
+        
         foreach(var line in lines)
         {
             var trimmed = line.TrimEnd('\r');
             if(string.IsNullOrWhiteSpace(trimmed)) continue;
+            
+            if(firstLine)
+            {
+                // Parse request line: "GET Version SHIORI/3.0" or "GET String SHIORI/3.0"
+                var parts = trimmed.Split(' ');
+                if(parts.Length >= 2)
+                {
+                    req.Id = parts[1]; // "Version", "String", etc.
+                }
+                firstLine = false;
+                continue;
+            }
+            
             var colon = trimmed.IndexOf(':');
             if(colon > 0)
             {

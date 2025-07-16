@@ -10,8 +10,33 @@ public class ConfigManager
 
     public ConfigManager(string path)
     {
-        var json = File.ReadAllText(path);
-        _root = JsonNode.Parse(json)!;
+        try
+        {
+            if (!File.Exists(path))
+            {
+                // Create default config if file doesn't exist
+                var defaultConfig = new
+                {
+                    ai_settings = new
+                    {
+                        default_service = "chatgpt",
+                        chatgpt = new { api_key = "", model = "gpt-3.5-turbo" },
+                        claude = new { api_key = "", model = "claude-3-haiku-20240307" },
+                        gemini = new { api_key = "", model = "gemini-pro" }
+                    }
+                };
+                var defaultJson = JsonSerializer.Serialize(defaultConfig, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(path, defaultJson);
+            }
+            
+            var json = File.ReadAllText(path);
+            _root = JsonNode.Parse(json) ?? new JsonObject();
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Config error: {ex.Message}");
+            _root = new JsonObject();
+        }
     }
 
     public string DefaultService => _root["ai_settings"]?["default_service"]?.ToString() ?? "chatgpt";

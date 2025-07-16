@@ -25,7 +25,11 @@ class Program
 
             var request = SHIORIRequest.Parse(requestText);
             string value = string.Empty;
-            if (request.Id == "OnBoot")
+            if (request.Id == "Version")
+            {
+                value = "MacUkagaka.SHIORI 1.0.0";
+            }
+            else if (request.Id == "OnBoot")
             {
                 value = SakuraScriptBuilder.Simple("こんにちは！MacUkagakaです。");
             }
