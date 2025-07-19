@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  Launch test verifying the initial screen.
+
 //
 //  AINanikaAIChanUITestsLaunchTests.swift
 //  AINanikaAIChanUITests

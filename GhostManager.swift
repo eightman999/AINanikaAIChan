@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  Loads ghost resources and communicates with the SHIORI engine.
+
 import Foundation
 
 protocol GhostManagerDelegate: AnyObject {

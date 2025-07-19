@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  Unit test stub for the application.
+
 //
 //  AINanikaAIChanTests.swift
 //  AINanikaAIChanTests
