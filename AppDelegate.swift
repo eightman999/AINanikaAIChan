@@ -1,31 +1,38 @@
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  macOS app delegate that initializes the ghost manager and window.
+//  ゴーストマネージャーとウィンドウを初期化するmacOSアプリのデリゲート。
 
 import Cocoa
 import Foundation
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    /// ゴーストのリソース管理とスクリプト処理を担当する。
     var ghostManager: GhostManager?
+    /// キャラクターを表示するメインウィンドウ。
     var characterWindow: CharacterWindowController?
     
+    /// アプリ起動後に呼び出されるエントリーポイント。
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupApplication()
         loadGhost()
     }
     
+    /// アプリ終了時に呼び出される。
     func applicationWillTerminate(_ notification: Notification) {
         ghostManager?.shutdown()
     }
     
+    /// ウィンドウがなくてもアプリを終了させない。
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return false
     }
     
+    /// アプリの基本設定を行う。
     private func setupApplication() {
         NSApp.setActivationPolicy(.accessory)
     }
     
+    /// ゴーストマネージャーを初期化してウィンドウを表示する。
     private func loadGhost() {
         do {
             // デフォルトのAINanikaAIChanゴーストを読み込む
@@ -42,6 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
+    /// エラーを表示してアプリを終了する。
     private func showErrorAndExit(_ message: String) {
         let alert = NSAlert()
         alert.alertStyle = .critical
@@ -53,12 +61,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension AppDelegate: GhostManagerDelegate {
+    /// ゴーストからさくらスクリプトを受信したときに呼ばれる。
     func ghostManager(_ manager: GhostManager, didReceiveScript script: String) {
         DispatchQueue.main.async {
             self.characterWindow?.processScript(script)
         }
     }
     
+    /// ゴーストでエラーが発生したときに呼ばれる。
     func ghostManager(_ manager: GhostManager, didEncounterError error: Error) {
         DispatchQueue.main.async {
             self.showErrorAndExit("ゴーストエラー: \(error)")
