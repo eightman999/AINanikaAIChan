@@ -8,7 +8,7 @@
 - `CHANGELOG.md` – 更新履歴
 - `LICENSE` – ライセンス条項
 - `THIRD-PARTY-LIBRARIES.md` – 利用している外部ライブラリ一覧
-- `geminicli.py`, `geminicli.csx`, `geminicli.sh`, `geminicli.bat` – Gemini API を操作する CLI ツール
+- `geminicli.py`, `geminicli.csx`, `geminicli.sh`, `geminicli.bat`, `geminicli.swift` – Gemini API を操作する CLI ツール
 - `ghost/` – ゴーストの C# スクリプトと設定類
 - `shell/` – 画像リソースやサーフェス定義
 - `developer_options.txt`, `install.txt` – 開発者向け/インストールに関するメモ
