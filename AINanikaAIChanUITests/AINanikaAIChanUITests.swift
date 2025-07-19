@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  UI tests exercising the application.
+
 //
 //  AINanikaAIChanUITests.swift
 //  AINanikaAIChanUITests

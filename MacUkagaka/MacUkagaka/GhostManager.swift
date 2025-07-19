@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  Swift Package version resolving resources during SPM builds.
+
 import Foundation
 
 protocol GhostManagerDelegate: AnyObject {

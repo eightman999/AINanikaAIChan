@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  macOS app delegate that initializes the ghost manager and window.
+
 import Cocoa
 import Foundation
 

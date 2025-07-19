@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  Window controller displaying the ghost character and running SakuraScript.
+
 import Cocoa
 import Foundation
 
