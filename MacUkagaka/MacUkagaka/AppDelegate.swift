@@ -1,3 +1,7 @@
+//  © eightman 2005-2025
+//  Furin-lab All Rights Reserved.
+//  macOS app delegate for the Swift package build.
+
 import Cocoa
 import Foundation
 
