@@ -1,28 +1,40 @@
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  Launches the SHIORI process and handles script requests.
+//  SHIORIプロセスを起動しスクリプト要求を処理するクラス。
 
 import Foundation
 
 class SHIORIClient {
+    /// ゴーストディレクトリへのパス。
     private let ghostPath: String
+    /// SHIORI実行ファイルまたはスクリプトへのパス。
     private let shioriPath: String
+    /// 実行中のSHIORIプロセス。
     private var process: Process?
+    /// リクエスト送信用パイプ。
     private var inputPipe: Pipe?
+    /// レスポンス受信用パイプ。
     private var outputPipe: Pipe?
     
+    /// SHIORIとの通信で発生し得るエラー。
     enum SHIORIError: Error {
+        /// プロセスの起動に失敗。
         case processNotStarted
+        /// データの送受信に失敗。
         case communicationError
+        /// 受信したレスポンスが不正。
         case invalidResponse
+        /// プロセスが予期せず終了。
         case processTerminated
     }
     
+    /// 指定されたゴーストパスとSHIORIパスでクライアントを生成。
     init(ghostPath: String, shioriPath: String) {
         self.ghostPath = ghostPath
         self.shioriPath = shioriPath
     }
     
+    /// ファイル種別に応じてSHIORIプロセスを起動。
     func start() throws {
         if shioriPath.hasSuffix(".dll") || shioriPath.hasSuffix(".exe") {
             if shioriPath.contains("MacUkagaka.SHIORI") {
@@ -46,6 +58,7 @@ class SHIORIClient {
         }
     }
     
+    /// 同梱のPythonテストスクリプトを起動。
     private func startTestSHIORIScript() throws {
         let scriptPath = "\(ghostPath)/test_shiori.py"
         
@@ -73,6 +86,7 @@ class SHIORIClient {
         }
     }
     
+    /// .NET Framework版SHIORI実行ファイルを起動。
     private func startDotNetShiori() throws {
         let exePath = "\(ghostPath)/Rosalind.CSharp.exe"
         
@@ -100,6 +114,7 @@ class SHIORIClient {
         }
     }
 
+    /// .NET Core版SHIORI実行ファイルを直接起動。
     private func startDotNetCoreShiori() throws {
         // shioriPathは既に完全なパスなので、そのまま使用
         guard FileManager.default.fileExists(atPath: shioriPath) else {
@@ -132,6 +147,7 @@ class SHIORIClient {
         }
     }
     
+    /// `dotnet script`でC#スクリプトを実行。
     private func startDotNetScript() throws {
         let scriptPath = "\(ghostPath)/\(shioriPath)"
         
@@ -159,6 +175,7 @@ class SHIORIClient {
         }
     }
 
+    /// Python製SHIORIスクリプトを起動。
     private func startPythonShiori() throws {
         let scriptPath = "\(ghostPath)/\(shioriPath)"
 
@@ -186,6 +203,7 @@ class SHIORIClient {
         }
     }
     
+    /// 実行中のSHIORIプロセスを終了。
     func stop() {
         process?.terminate()
         process?.waitUntilExit()
@@ -194,6 +212,7 @@ class SHIORIClient {
         outputPipe = nil
     }
     
+    /// SHIORIへリクエストを送り、レスポンスのValue部分を返す。
     func request(event: String, references: [String]) throws -> String {
         guard let proc = process, proc.isRunning else {
             throw SHIORIError.processTerminated
@@ -242,6 +261,7 @@ class SHIORIClient {
         return parseResponse(response)
     }
     
+    /// データ内にパターンが含まれているか判定する。
     private func containsData(_ data: Data, _ pattern: Data) -> Bool {
         guard data.count >= pattern.count else { return false }
         
@@ -254,6 +274,7 @@ class SHIORIClient {
         return false
     }
     
+    /// `Value:` ヘッダー以降の本文を抽出する。
     private func parseResponse(_ response: String) -> String {
         let lines = response.components(separatedBy: .newlines)
         var inValueSection = false

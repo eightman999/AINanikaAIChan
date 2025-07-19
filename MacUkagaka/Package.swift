@@ -1,9 +1,10 @@
 // swift-tools-version:5.7
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  Swift package manifest for building MacUkagaka.
+//  MacUkagakaをビルドするためのSwiftパッケージマニフェスト。
 import PackageDescription
 
+/// Swift Packageの定義。
 let package = Package(
     name: "MacUkagaka",
     platforms: [

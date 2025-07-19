@@ -1,6 +1,6 @@
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  Loads ghost resources and communicates with the SHIORI engine.
+//  ゴーストのリソースを読み込み、SHIORIエンジンと通信するクラス。
 
 import Foundation
 
@@ -10,25 +10,46 @@ protocol GhostManagerDelegate: AnyObject {
 }
 
 class GhostManager {
+    /// スクリプトとエラー通知用のデリゲート。
     weak var delegate: GhostManagerDelegate?
+
+    /// ゴーストリソースのルートパス。
     private let ghostPath: String
+
+    /// `descript.txt`から解析した情報。
     private var ghostInfo: GhostInfo?
+
+    /// SHIORIエンジンとの通信に使用するクライアント。
     private var shioriClient: SHIORIClient?
+
+    /// `OnSecondChange`イベント用のタイマー。
     private var randomTalkTimer: Timer?
     
+    /// `descript.txt`から取得した情報。
     struct GhostInfo {
+        /// ゴーストの表示名。
         let name: String
+        /// メインキャラの名前（通常はさくら）。
         let sakuraName: String
+        /// サブキャラの名前（通常はうにゅう）。
         let keroName: String
+        /// SHIORI実行ファイルのパス。
         let shioriPath: String
+        /// ゴーストが使用する文字コード。
         let charset: String
     }
     
+    /// ゴーストの読み込み・実行で発生する可能性のあるエラー。
     enum GhostError: Error {
+        /// `descript.txt` が見つからない。
         case descriptNotFound
+        /// SHIORI 実行ファイルが見つからない。
         case shioriNotFound
+        /// `descript.txt` に指定された文字コードが不正。
         case invalidCharset
+        /// 必要な構成要素が不足して初期化に失敗。
         case initializationFailed
+        /// バンドル内のリソースが見つからない。
         case bundleResourceNotFound
     }
     
@@ -46,7 +67,7 @@ class GhostManager {
         self.shioriClient = SHIORIClient(ghostPath: ghostPath, shioriPath: ghostInfo!.shioriPath)
     }
     
-    // デフォルトゴーストパスの取得
+    /// Returns the default path to the bundled ghost resources.
     private static func getDefaultGhostPath() throws -> String {
         // 配布時: アプリケーションバンドル内のリソース（カスタムビルドスクリプトによりコピーされたリソース）
         guard let bundleResourceURL = Bundle.main.resourceURL else {
@@ -68,6 +89,7 @@ class GhostManager {
         throw GhostError.bundleResourceNotFound
     }
     
+    /// SHIORI を起動し `OnBoot` を送信。
     func start() throws {
         guard let shiori = shioriClient else {
             throw GhostError.initializationFailed
@@ -88,6 +110,7 @@ class GhostManager {
         startRandomTalk()
     }
     
+    /// `OnClose` を送信して SHIORI を終了。
     func shutdown() {
         randomTalkTimer?.invalidate()
         randomTalkTimer = nil
@@ -102,6 +125,7 @@ class GhostManager {
         }
     }
     
+    /// マウスクリックを SHIORI に通知。
     func handleMouseClick(surfaceId: Int, x: Int, y: Int, button: Int) {
         guard let shiori = shioriClient else { return }
         
@@ -121,6 +145,7 @@ class GhostManager {
         }
     }
     
+    /// `OnSecondChange` をポーリング。
     func handleSecondChange() {
         guard let shiori = shioriClient else { return }
         
@@ -134,6 +159,7 @@ class GhostManager {
         }
     }
     
+    /// `descript.txt` を読み込み、ゴースト情報を返す。
     private func loadGhostInfo() throws -> GhostInfo {
         let descriptPath = "\(ghostPath)/descript.txt"
         
@@ -180,7 +206,7 @@ class GhostManager {
         )
     }
     
-    // .NET SHIORIの実行ファイルパスを解決
+    /// 同梱 .NET SHIORI の実行パスを解決。
     private func resolveSHIORIPath() throws -> String {
         // 配布時: アプリケーションバンドル内のSHIORIパス（カスタムビルドスクリプトによりコピーされたリソース）
         guard let bundleResourceURL = Bundle.main.resourceURL else {
@@ -202,6 +228,7 @@ class GhostManager {
         throw GhostError.shioriNotFound
     }
     
+    /// `handleSecondChange` を繰り返し呼び出すタイマーを開始。
     private func startRandomTalk() {
         randomTalkTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.handleSecondChange()
@@ -210,14 +237,17 @@ class GhostManager {
 }
 
 extension GhostManager {
+    /// 読み込まれたゴーストの名前。
     var name: String {
         return ghostInfo?.name ?? "Unknown"
     }
     
+    /// スコープ0(\h)で使用する名前。
     var sakuraName: String {
         return ghostInfo?.sakuraName ?? "さくら"
     }
     
+    /// スコープ1(\u)で使用する名前。
     var keroName: String {
         return ghostInfo?.keroName ?? "うにゅう"
     }

@@ -1,10 +1,12 @@
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  Parses SakuraScript into executable actions.
+//  SakuraScriptを解析して実行可能なアクションに変換する。
 
 import Foundation
 
+/// SakuraScriptの字句解析で得られるトークン。
 struct SakuraScriptToken {
+    /// SakuraScriptに現れるトークン種別。
     enum TokenType {
         case text(String)
         case scopeSwitch(Int)
@@ -19,7 +21,9 @@ struct SakuraScriptToken {
     let type: TokenType
 }
 
+/// 解析されたトークンから生成され、UIで実行されるアクション。
 struct SakuraScriptAction {
+    /// 実行可能なアクションの種類。
     enum ActionType {
         case displayText(String, scope: Int)
         case changeSurface(Int, scope: Int)
@@ -32,13 +36,16 @@ struct SakuraScriptAction {
 }
 
 class SakuraScriptParser {
+    /// 現在のスコープ(0は\h、1は\u)。
     private var currentScope: Int = 0
     
+    /// SakuraScript文字列を実行可能なアクションに変換する。
     func parse(_ script: String) -> [SakuraScriptAction] {
         let tokens = tokenize(script)
         return generateActions(from: tokens)
     }
     
+    /// スクリプトをトークン列に分割する。
     private func tokenize(_ script: String) -> [SakuraScriptToken] {
         var tokens: [SakuraScriptToken] = []
         var index = script.startIndex
@@ -62,6 +69,7 @@ class SakuraScriptParser {
         return tokens
     }
     
+    /// 「\\」から始まる制御コードを解析する。
     private func parseControlCode(_ script: String, from index: String.Index) -> (SakuraScriptToken?, String.Index) {
         guard index < script.endIndex else {
             return (nil, index)
@@ -106,6 +114,7 @@ class SakuraScriptParser {
         }
     }
     
+    /// 次の制御コードまでのテキストを取得する。
     private func parseText(_ script: String, from index: String.Index) -> (String, String.Index) {
         var text = ""
         var currentIndex = index
@@ -122,6 +131,7 @@ class SakuraScriptParser {
         return (text, currentIndex)
     }
     
+    /// 「[123]」のような数値を解析する。
     private func parseNumericParameter(_ script: String, from index: String.Index) -> (Int, String.Index) {
         var currentIndex = script.index(after: index)
         
@@ -144,6 +154,7 @@ class SakuraScriptParser {
         return (Int(numberString) ?? 0, currentIndex)
     }
     
+    /// 「[Text,id]」形式の選択肢パラメータを解析する。
     private func parseChoiceParameter(_ script: String, from index: String.Index) -> ((String, String), String.Index) {
         var currentIndex = script.index(after: index)
         
@@ -170,6 +181,7 @@ class SakuraScriptParser {
         return ((text, id), currentIndex)
     }
     
+    /// トークン列からアクションシーケンスを生成する。
     private func generateActions(from tokens: [SakuraScriptToken]) -> [SakuraScriptAction] {
         var actions: [SakuraScriptAction] = []
         var currentText = ""

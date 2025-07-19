@@ -1,20 +1,29 @@
 //  © eightman 2005-2025
 //  Furin-lab All Rights Reserved.
-//  Window controller displaying the ghost character and running SakuraScript.
+//  ゴーストキャラクターを表示しSakuraScriptを処理するウィンドウコントローラ。
 
 import Cocoa
 import Foundation
 
 class CharacterWindowController: NSWindowController {
+    /// SHIORIとの通信を担当するマネージャ。
     private let ghostManager: GhostManager
+    /// 現在のサーフェスを表示するイメージビュー。
     private var characterImageView: NSImageView!
+    /// セリフを表示する吹き出しウィンドウ。
     private var balloonWindow: NSWindow?
+    /// 吹き出しウィンドウ内のテキストフィールド。
     private var balloonTextField: NSTextField?
+    /// 表示中のサーフェスID。
     private var currentSurface: Int = 0
+    /// SakuraScript文字列を解析するパーサ。
     private var scriptParser: SakuraScriptParser
+    /// 実行待ちのアクションキュー。
     private var actionQueue: [SakuraScriptAction] = []
+    /// スクリプト処理中かどうかのフラグ。
     private var isProcessingScript = false
     
+    /// 指定されたゴーストマネージャと紐づくウィンドウコントローラを生成。
     init(ghostManager: GhostManager) {
         self.ghostManager = ghostManager
         self.scriptParser = SakuraScriptParser()
@@ -37,6 +46,7 @@ class CharacterWindowController: NSWindowController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// ウィンドウの外観と挙動を設定。
     private func setupWindow() {
         guard let window = window else { return }
         
@@ -52,6 +62,7 @@ class CharacterWindowController: NSWindowController {
         window.contentView?.layer?.backgroundColor = NSColor.clear.cgColor
     }
     
+    /// キャラクター画像ビューを作成して設定。
     private func setupCharacterView() {
         guard let window = window else { return }
         
@@ -80,10 +91,12 @@ class CharacterWindowController: NSWindowController {
         ])
     }
     
+    /// 起動時にサーフェス0を読み込む。
     private func loadInitialSurface() {
         loadSurface(0)
     }
     
+    /// 指定されたサーフェス画像を表示する。
     private func loadSurface(_ surfaceId: Int) {
         let shellPath = findShellPath()
         guard let path = shellPath else { return }
@@ -109,6 +122,7 @@ class CharacterWindowController: NSWindowController {
         }
     }
     
+    /// シェルリソースを探す。
     private func findShellPath() -> String? {
         let currentPath = FileManager.default.currentDirectoryPath
         let possiblePaths = [
@@ -126,6 +140,7 @@ class CharacterWindowController: NSWindowController {
         return nil
     }
     
+    /// 画像サイズに合わせてウィンドウをリサイズ。
     private func adjustWindowSize(for image: NSImage) {
         guard let window = window else { return }
         
@@ -136,6 +151,7 @@ class CharacterWindowController: NSWindowController {
         window.setFrame(newFrame, display: true)
     }
     
+    /// SakuraScript文字列を解析して実行。
     func processScript(_ script: String) {
         let actions = scriptParser.parse(script)
         actionQueue.append(contentsOf: actions)
@@ -145,6 +161,7 @@ class CharacterWindowController: NSWindowController {
         }
     }
     
+    /// 次のSakuraScriptアクションを実行。
     private func processNextAction() {
         guard !actionQueue.isEmpty else {
             isProcessingScript = false
@@ -176,6 +193,7 @@ class CharacterWindowController: NSWindowController {
         }
     }
     
+    /// 指定されたテキストの吹き出しを表示。
     private func showBalloon(_ text: String, for scope: Int) {
         hideBalloon()
         
@@ -220,12 +238,14 @@ class CharacterWindowController: NSWindowController {
         }
     }
     
+    /// 吹き出しウィンドウを非表示にする。
     private func hideBalloon() {
         balloonWindow?.orderOut(nil)
         balloonWindow = nil
         balloonTextField = nil
     }
     
+    /// 選択肢ボタンを表示。
     private func showChoices(_ choices: [(String, String)]) {
         hideBalloon()
         
@@ -267,6 +287,7 @@ class CharacterWindowController: NSWindowController {
         balloonWindow?.orderFrontRegardless()
     }
     
+    /// 選択肢ボタンが押されたときの処理。
     @objc private func choiceSelected(_ sender: NSButton) {
         hideBalloon()
         
@@ -275,6 +296,7 @@ class CharacterWindowController: NSWindowController {
 }
 
 extension CharacterWindowController {
+    /// キャラクターのマウスクリックをゴーストマネージャへ転送する。
     override func mouseDown(with event: NSEvent) {
         guard window != nil else { return }
         
