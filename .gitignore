@@ -6,3 +6,5 @@ ghost/master/log/
 .mcp.json
 MacUkagaka/.build/
 MacUkagaka/.swiftpm/
+
+.DS_Store
