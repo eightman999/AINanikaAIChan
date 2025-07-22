@@ -1,0 +1,4 @@
+--swiftversion 5.10
+--indent 4
+--maxwidth 120
+--exclude Pods

@@ -1,4 +1,6 @@
 # AI何かちゃん & MacUkagaka
+![clang-format](https://github.com/eightman999/AINanikaAIChan/actions/workflows/clang-format.yml/badge.svg)
+![swiftformat](https://github.com/eightman999/AINanikaAIChan/actions/workflows/swiftformat.yml/badge.svg)
 
 ## プロジェクト概要
 
@@ -104,3 +106,11 @@ dotnet run
 ```
 
 設定ファイル `config.json` に各 AI サービスの API キーとモデル名を記述してください。
+
+## フォーマットツール
+
+以下のコマンドで `clang-format` と `swiftformat` をインストールすると、ローカルでも CI と同じ設定でコードを整形できます。
+
+```bash
+brew install clang-format swiftformat
+```
