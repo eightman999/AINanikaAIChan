@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Okt1GqMO0xHvlXRk0miWb0G5sUw8kCyDXlWWzpO8XYe6BSrQfr9ksxbidmXqkTR7iaMoKigZFtBj7SZQZGggEA==",
+  "dgSpecHash": "+wQnWzcQe6Y=",
   "success": true,
-  "projectFilePath": "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
+  "projectFilePath": "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
   "expectedPackageFiles": [
-    "/Users/eightman/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/6.0.6/microsoft.netcore.app.runtime.osx-x64.6.0.6.nupkg.sha512",
-    "/Users/eightman/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/6.0.6/microsoft.aspnetcore.app.runtime.osx-x64.6.0.6.nupkg.sha512"
+    "/Users/eightman/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/Users/eightman/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/6.0.36/microsoft.netcore.app.runtime.osx-arm64.6.0.36.nupkg.sha512",
+    "/Users/eightman/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "/Users/eightman/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/6.0.36/microsoft.aspnetcore.app.runtime.osx-arm64.6.0.36.nupkg.sha512",
+    "/Users/eightman/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.36/microsoft.netcore.app.host.osx-arm64.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }

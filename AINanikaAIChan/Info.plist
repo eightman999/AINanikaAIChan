@@ -23,7 +23,7 @@
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
     <key>LSUIElement</key>
-    <true/>
+    <false/>
     <key>NSAppleEventsUsageDescription</key>
     <string>SHIORIプロセスとの通信に必要です</string>
     <key>NSAppTransportSecurity</key>

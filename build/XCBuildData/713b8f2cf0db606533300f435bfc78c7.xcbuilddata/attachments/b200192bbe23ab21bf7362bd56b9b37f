@@ -1,0 +1,88 @@
+{
+  "" : {
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AINanikaAIChan-master.dia",
+    "emit-module-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AINanikaAIChan-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AINanikaAIChan-master-emit-module.dia",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AINanikaAIChan-master.swiftdeps"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/AppDelegate.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/CharacterWindowController.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/CharacterWindowController~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/GhostManager.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/GhostManager~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/SHIORIClient.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIClient~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/SHIORIConverterManager.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SHIORIConverterManager~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/SakuraScriptParser.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/SakuraScriptParser~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/UkagakaDirectoryManager.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/UkagakaDirectoryManager~partial.swiftmodule"
+  },
+  "/Users/eightman/Desktop/software_develop/AINanikaAIChan/main.swift" : {
+    "const-values" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.swiftconstvalues",
+    "dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.d",
+    "diagnostics" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.dia",
+    "index-unit-output-path" : "/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.o",
+    "llvm-bc" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.bc",
+    "object" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.o",
+    "swift-dependencies" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main.swiftdeps",
+    "swiftmodule" : "/Users/eightman/Desktop/software_develop/AINanikaAIChan/build/AINanikaAIChan.build/Debug/AINanikaAIChan.build/Objects-normal/arm64/main~partial.swiftmodule"
+  }
+}

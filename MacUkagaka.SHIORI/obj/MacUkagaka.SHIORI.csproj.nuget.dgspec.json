@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj": {}
+    "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj": {}
   },
   "projects": {
-    "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj": {
+    "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
+        "projectUniqueName": "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
         "projectName": "MacUkagaka.SHIORI",
-        "projectPath": "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
+        "projectPath": "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/MacUkagaka.SHIORI.csproj",
         "packagesPath": "/Users/eightman/.nuget/packages/",
-        "outputPath": "/Users/eightman/Desktop/AINanikaAIChan/MacUkagaka.SHIORI/obj/",
+        "outputPath": "/Users/eightman/Desktop/software_develop/AINanikaAIChan/MacUkagaka.SHIORI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eightman/.nuget/NuGet/NuGet.Config"
@@ -20,6 +20,7 @@
           "net6.0"
         ],
         "sources": {
+          "/opt/homebrew/Cellar/dotnet/9.0.7/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,7 +33,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -43,18 +50,31 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
-              "version": "[6.0.6, 6.0.6]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             },
             {
-              "name": "Microsoft.NETCore.App.Runtime.osx-x64",
-              "version": "[6.0.6, 6.0.6]"
+              "name": "Microsoft.AspNetCore.App.Runtime.osx-arm64",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.osx-arm64",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -62,11 +82,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.7/libexec/sdk/9.0.108/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
-        "osx-x64": {
+        "osx-arm64": {
           "#import": []
         }
       }

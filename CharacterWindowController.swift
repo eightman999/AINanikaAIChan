@@ -98,22 +98,31 @@ class CharacterWindowController: NSWindowController {
     
     /// 指定されたサーフェス画像を表示する。
     private func loadSurface(_ surfaceId: Int) {
+        print("loadSurface called with surfaceId: \(surfaceId)")
         let shellPath = findShellPath()
-        guard let path = shellPath else { return }
+        guard let path = shellPath else { 
+            print("ERROR: Shell path not found")
+            return 
+        }
+        print("Shell path found: \(path)")
         
         let surfaceFile = String(format: "%03d_000.png", surfaceId)
         let imagePath = "\(path)/\(surfaceFile)"
+        print("Trying to load image: \(imagePath)")
         
         guard let image = NSImage(contentsOfFile: imagePath) else {
             let fallbackPath = "\(path)/surface\(surfaceId).png"
+            print("Primary image not found, trying fallback: \(fallbackPath)")
             guard let fallbackImage = NSImage(contentsOfFile: fallbackPath) else {
-                print("Surface image not found: \(imagePath)")
+                print("ERROR: Both surface images not found - primary: \(imagePath), fallback: \(fallbackPath)")
                 return
             }
+            print("Fallback image loaded successfully")
             characterImageView.image = fallbackImage
             return
         }
         
+        print("Primary image loaded successfully")
         characterImageView.image = image
         currentSurface = surfaceId
         
@@ -124,19 +133,47 @@ class CharacterWindowController: NSWindowController {
     
     /// シェルリソースを探す。
     private func findShellPath() -> String? {
-        let currentPath = FileManager.default.currentDirectoryPath
+        print("findShellPath called")
+        
+        // Bundle内のリソースパスを取得
+        guard let bundleResourcePath = Bundle.main.resourcePath else {
+            print("ERROR: Bundle resource path not found")
+            return nil
+        }
+        print("Bundle resource path: \(bundleResourcePath)")
+        
+        // shell フォルダのパス候補
         let possiblePaths = [
-            "\(currentPath)/shell/master",
-            "\(currentPath)/../shell/master",
-            "\(currentPath)/../../shell/master"
+            "\(bundleResourcePath)/shell",
+            "\(bundleResourcePath)/shell/master"
         ]
         
         for path in possiblePaths {
+            print("Checking path: \(path)")
             if FileManager.default.fileExists(atPath: path) {
+                print("Found shell path: \(path)")
                 return path
             }
         }
         
+        // 開発環境での相対パス（フォールバック）
+        let currentPath = FileManager.default.currentDirectoryPath
+        print("Current directory: \(currentPath)")
+        let devPaths = [
+            "\(currentPath)/shell",
+            "\(currentPath)/../shell",
+            "\(currentPath)/../../shell"
+        ]
+        
+        for path in devPaths {
+            print("Checking dev path: \(path)")
+            if FileManager.default.fileExists(atPath: path) {
+                print("Found dev shell path: \(path)")
+                return path
+            }
+        }
+        
+        print("ERROR: No shell path found")
         return nil
     }
     
@@ -153,7 +190,12 @@ class CharacterWindowController: NSWindowController {
     
     /// SakuraScript文字列を解析して実行。
     func processScript(_ script: String) {
+        print("processScript called with: '\(script)'")
         let actions = scriptParser.parse(script)
+        print("Parsed actions: \(actions.count)")
+        for (index, action) in actions.enumerated() {
+            print("Action \(index): \(action.type)")
+        }
         actionQueue.append(contentsOf: actions)
         
         if !isProcessingScript {
@@ -178,6 +220,7 @@ class CharacterWindowController: NSWindowController {
                 self.processNextAction()
             }
         case .changeSurface(let surface, _):
+            print("Processing changeSurface action with surface: \(surface)")
             loadSurface(surface)
             processNextAction()
         case .wait(let milliseconds):
