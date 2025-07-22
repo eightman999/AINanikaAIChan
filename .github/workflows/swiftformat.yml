@@ -1,0 +1,22 @@
+name: swiftformat
+on:
+  pull_request:
+    paths:
+      - '**/*.swift'
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  lint:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Run SwiftFormat
+        uses: mtgto/swift-format-action@main
+        with:
+          configuration_file: '.swiftformat'
+      - name: Fail if diffs exist
+        run: git diff --exit-code

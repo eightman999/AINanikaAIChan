@@ -1,0 +1,27 @@
+name: clang-format
+on:
+  pull_request:
+    paths:
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.mm'
+      - '**/*.h'
+      - '**/*.hpp'
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: clang-format check
+        uses: doozyx/clang-format-lint-action@v1.4
+        with:
+          clangFormatVersion: 17
+          source: './'
+          style: file
+          inplace: false
