@@ -125,6 +125,12 @@ swift run
    - `AINanikaAIChan/shiori/` フォルダ
    - `AINanikaAIChan/shell/` フォルダ
 
+### 4.4 Signing & Capabilities の設定
+1. **Target を選択 → Signing & Capabilities**
+2. **Team**: `XBT5U5CHS8` (あなたのDeveloper Team ID)
+3. **`+ Capability` をクリックし `Hardened Runtime` を追加**
+4. **同様に `App Groups` を追加し `group.com.eightman.sstp` を登録**
+
 ## 手順5: Build Phases の設定
 
 ### 5.1 Run Script Phase の追加
