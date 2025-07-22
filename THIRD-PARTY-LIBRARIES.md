@@ -91,3 +91,5 @@ System.Xml.XPath
 
 ### Newtonsoft.Json
 著作権表示: Copyright (c) 2007 James Newton-King
+### SwiftNIO
+Copyright (c) 2017-2024 Apple Inc.
