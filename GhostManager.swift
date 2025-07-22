@@ -13,7 +13,8 @@ struct SHIORIRequest {
     let method: String
     let id: String
     let references: [String: String]
-    
+    let securityLevel: String
+
     static func parse(_ requestText: String) -> SHIORIRequest? {
         print("[SHIORIRequest] Parsing request: \"\(requestText.prefix(200))\"")
         
@@ -40,6 +41,8 @@ struct SHIORIRequest {
         
         var id = ""
         var references: [String: String] = [:]
+        var securityLevel = "external"
+        var remoteGroup = ""
         
         for (index, line) in lines.dropFirst().enumerated() {
             let trimmedLine = line.trimmingCharacters(in: .whitespaces)
@@ -65,11 +68,21 @@ struct SHIORIRequest {
                 id = value
             } else if key.hasPrefix("Reference") {
                 references[key] = value
+            } else if key == "SecurityLevel" {
+                securityLevel = value
+            } else if key == "App-Group-ID" {
+                remoteGroup = value
             }
         }
         
-        print("[SHIORIRequest] Successfully parsed - Method: \"\(method)\", Version: \"\(version)\", ID: \"\(id)\", References: \(references.count)")
-        return SHIORIRequest(version: version, method: method, id: id, references: references)
+        let evaluated = Self.evaluateSecurityLevel(requested: securityLevel, remoteGroup: remoteGroup)
+        print("[SHIORIRequest] Successfully parsed - Method: \"\(method)\", Version: \"\(version)\", ID: \"\(id)\", References: \(references.count), SecurityLevel: \"\(evaluated)\"")
+        return SHIORIRequest(version: version, method: method, id: id, references: references, securityLevel: evaluated)
+    }
+
+    /// Returns the effective security level based on the remote App Group.
+    private static func evaluateSecurityLevel(requested: String, remoteGroup: String) -> String {
+        return remoteGroup == SharedFMO.groupID ? requested : "external"
     }
     
     func getReference(_ index: Int) -> String? {
