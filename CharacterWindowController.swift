@@ -22,6 +22,9 @@ class CharacterWindowController: NSWindowController {
     private var actionQueue: [SakuraScriptAction] = []
     /// スクリプト処理中かどうかのフラグ。
     private var isProcessingScript = false
+
+    /// Shared FMO manager for inter-process state sharing.
+    private var fmo: SharedFMO?
     
     /// 指定されたゴーストマネージャと紐づくウィンドウコントローラを生成。
     init(ghostManager: GhostManager) {
@@ -40,6 +43,14 @@ class CharacterWindowController: NSWindowController {
         setupWindow()
         setupCharacterView()
         loadInitialSurface()
+
+        // Initialize shared memory and start periodic updates.
+        fmo = SharedFMO()
+        fmo?.start(stateProvider: { [weak self] in
+            let surface = Int32(self?.currentSurface ?? 0)
+            let talk = (self?.isProcessingScript ?? false) ? Int32(1) : Int32(0)
+            return (surface, talk)
+        })
     }
     
     required init?(coder: NSCoder) {
