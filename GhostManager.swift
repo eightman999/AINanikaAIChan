@@ -751,4 +751,9 @@ extension GhostManager {
     var keroName: String {
         return ghostInfo?.keroName ?? "うにゅう"
     }
+
+    /// ゴーストのルートディレクトリパスを返す。
+    var path: String {
+        return ghostPath
+    }
 }
