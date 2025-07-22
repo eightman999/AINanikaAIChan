@@ -45,7 +45,7 @@ class CharacterWindowController: NSWindowController {
         loadInitialSurface()
 
         // Initialize shared memory and start periodic updates.
-        fmo = SharedFMO()
+        fmo = SharedFMO(ghostPath: ghostManager.path)
         fmo?.start(stateProvider: { [weak self] in
             let surface = Int32(self?.currentSurface ?? 0)
             let talk = (self?.isProcessingScript ?? false) ? Int32(1) : Int32(0)
