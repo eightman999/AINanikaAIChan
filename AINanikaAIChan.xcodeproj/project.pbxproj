@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF53B9DD2E2FDBF500A66BAC /* SSTPSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9DA2E2FDBF500A66BAC /* SSTPSocketServer.swift */; };
+		DF53B9DE2E2FDBF500A66BAC /* DateTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9D82E2FDBF500A66BAC /* DateTimeManager.swift */; };
+		DF53B9DF2E2FDBF500A66BAC /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9D72E2FDBF500A66BAC /* CharacterState.swift */; };
+		DF53B9E02E2FDBF500A66BAC /* geminicli.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9D92E2FDBF500A66BAC /* geminicli.swift */; };
+		DF53B9E12E2FDBF500A66BAC /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9DB2E2FDBF500A66BAC /* StateManager.swift */; };
+		DF53B9E22E2FDBF500A66BAC /* SwiftSHIORI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF53B9DC2E2FDBF500A66BAC /* SwiftSHIORI.swift */; };
+		DF53B9E52E2FDCB000A66BAC /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = DF53B9E42E2FDCB000A66BAC /* NIO */; };
+		DF53B9E72E2FDCB000A66BAC /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = DF53B9E62E2FDCB000A66BAC /* NIOConcurrencyHelpers */; };
+		DF53B9E92E2FDCB000A66BAC /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = DF53B9E82E2FDCB000A66BAC /* NIOCore */; };
+		DF53B9EB2E2FDCB000A66BAC /* NIOEmbedded in Frameworks */ = {isa = PBXBuildFile; productRef = DF53B9EA2E2FDCB000A66BAC /* NIOEmbedded */; };
+		DF53B9ED2E2FDCB000A66BAC /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = DF53B9EC2E2FDCB000A66BAC /* NIOFoundationCompat */; };
 		DFF492A02E27C98100D93A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FA2E27C98000D93A61 /* AppDelegate.swift */; };
 		DFF492A12E27C98100D93A61 /* CharacterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */; };
 		DFF492A22E27C98100D93A61 /* GhostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF491FC2E27C98000D93A61 /* GhostManager.swift */; };
@@ -41,6 +52,12 @@
 		DF44442B2E27C08E00F90DF6 /* AINanikaAIChan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AINanikaAIChan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4444392E27C09400F90DF6 /* AINanikaAIChanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AINanikaAIChanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4444432E27C09400F90DF6 /* AINanikaAIChanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AINanikaAIChanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF53B9D72E2FDBF500A66BAC /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
+		DF53B9D82E2FDBF500A66BAC /* DateTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeManager.swift; sourceTree = "<group>"; };
+		DF53B9D92E2FDBF500A66BAC /* geminicli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geminicli.swift; sourceTree = "<group>"; };
+		DF53B9DA2E2FDBF500A66BAC /* SSTPSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTPSocketServer.swift; sourceTree = "<group>"; };
+		DF53B9DB2E2FDBF500A66BAC /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		DF53B9DC2E2FDBF500A66BAC /* SwiftSHIORI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSHIORI.swift; sourceTree = "<group>"; };
 		DFF491FA2E27C98000D93A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterWindowController.swift; sourceTree = "<group>"; };
 		DFF491FC2E27C98000D93A61 /* GhostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostManager.swift; sourceTree = "<group>"; };
@@ -72,6 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF53B9E92E2FDCB000A66BAC /* NIOCore in Frameworks */,
+				DF53B9ED2E2FDCB000A66BAC /* NIOFoundationCompat in Frameworks */,
+				DF53B9E52E2FDCB000A66BAC /* NIO in Frameworks */,
+				DF53B9E72E2FDCB000A66BAC /* NIOConcurrencyHelpers in Frameworks */,
+				DF53B9EB2E2FDCB000A66BAC /* NIOEmbedded in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +117,12 @@
 		DF4444222E27C08E00F90DF6 = {
 			isa = PBXGroup;
 			children = (
+				DF53B9D72E2FDBF500A66BAC /* CharacterState.swift */,
+				DF53B9D82E2FDBF500A66BAC /* DateTimeManager.swift */,
+				DF53B9D92E2FDBF500A66BAC /* geminicli.swift */,
+				DF53B9DA2E2FDBF500A66BAC /* SSTPSocketServer.swift */,
+				DF53B9DB2E2FDBF500A66BAC /* StateManager.swift */,
+				DF53B9DC2E2FDBF500A66BAC /* SwiftSHIORI.swift */,
 				DFF491FA2E27C98000D93A61 /* AppDelegate.swift */,
 				DFF491FB2E27C98000D93A61 /* CharacterWindowController.swift */,
 				DFF491FC2E27C98000D93A61 /* GhostManager.swift */,
@@ -140,6 +168,11 @@
 			);
 			name = AINanikaAIChan;
 			packageProductDependencies = (
+				DF53B9E42E2FDCB000A66BAC /* NIO */,
+				DF53B9E62E2FDCB000A66BAC /* NIOConcurrencyHelpers */,
+				DF53B9E82E2FDCB000A66BAC /* NIOCore */,
+				DF53B9EA2E2FDCB000A66BAC /* NIOEmbedded */,
+				DF53B9EC2E2FDCB000A66BAC /* NIOFoundationCompat */,
 			);
 			productName = AINanikaAIChan;
 			productReference = DF44442B2E27C08E00F90DF6 /* AINanikaAIChan.app */;
@@ -223,6 +256,9 @@
 			);
 			mainGroup = DF4444222E27C08E00F90DF6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF44442C2E27C08E00F90DF6 /* Products */;
 			projectDirPath = "";
@@ -291,6 +327,12 @@
 				DFF492A02E27C98100D93A61 /* AppDelegate.swift in Sources */,
 				DFF492A12E27C98100D93A61 /* CharacterWindowController.swift in Sources */,
 				DFF492A22E27C98100D93A61 /* GhostManager.swift in Sources */,
+				DF53B9DD2E2FDBF500A66BAC /* SSTPSocketServer.swift in Sources */,
+				DF53B9DE2E2FDBF500A66BAC /* DateTimeManager.swift in Sources */,
+				DF53B9DF2E2FDBF500A66BAC /* CharacterState.swift in Sources */,
+				DF53B9E02E2FDBF500A66BAC /* geminicli.swift in Sources */,
+				DF53B9E12E2FDBF500A66BAC /* StateManager.swift in Sources */,
+				DF53B9E22E2FDBF500A66BAC /* SwiftSHIORI.swift in Sources */,
 				DFF492A32E27C98100D93A61 /* main.swift in Sources */,
 				DFF492A42E27C98100D93A61 /* SakuraScriptParser.swift in Sources */,
 				DFF492A52E27C98100D93A61 /* SHIORIClient.swift in Sources */,
@@ -627,6 +669,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.85.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF53B9E42E2FDCB000A66BAC /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		DF53B9E62E2FDCB000A66BAC /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		DF53B9E82E2FDCB000A66BAC /* NIOCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOCore;
+		};
+		DF53B9EA2E2FDCB000A66BAC /* NIOEmbedded */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOEmbedded;
+		};
+		DF53B9EC2E2FDCB000A66BAC /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF53B9E32E2FDCB000A66BAC /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF4444232E27C08E00F90DF6 /* Project object */;
 }

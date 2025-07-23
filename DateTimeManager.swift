@@ -4,27 +4,8 @@
 
 import Foundation
 
-/// 時間帯の分類
-enum TimeOfDay: String, CaseIterable {
-    case morning = "朝"
-    case afternoon = "昼"
-    case evening = "夕方"
-    case night = "夜"
-    case lateNight = "深夜"
-}
 
-/// 季節とイベントの分類
-enum Season: String, CaseIterable {
-    case spring = "春"
-    case summer = "夏"
-    case autumn = "秋"
-    case winter = "冬"
-    case newYear = "お正月"
-    case christmas = "クリスマス"
-    case valentines = "バレンタイン"
-    case whiteDays = "ホワイトデー"
-    case halloween = "ハロウィン"
-}
+
 
 /// 日時に関する判定を行うマネージャークラス
 class DateTimeManager {

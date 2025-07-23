@@ -77,4 +77,4 @@ func main() {
     semaphore.wait()
 }
 
-main()
+//main()
