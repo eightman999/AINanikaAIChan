@@ -91,7 +91,7 @@ struct SakuraScriptBuilder {
     
     /// ユーザーに選択肢を提示する
     static func choice(_ text: String, options: [String]) -> String {
-        let choiceScripts = options.map { "\\q[\(\($0)),OnTalk,\"\($0)\"]" }.joined(separator: " ")
+        let choiceScripts = options.map { "\\q[\($0),OnTalk,\"\($0)\"]" }.joined(separator: " ")
         return "\\h\(text) \(choiceScripts)\\e"
     }
     
@@ -103,37 +103,6 @@ struct SakuraScriptBuilder {
 }
 
 
-/// キャラクターの全状態を保持する構造体
-struct CharacterState: Codable {
-    // クリック関連の状態
-    var clickCount: Int = 0
-    var lastClickTime: Date? = nil
-    var consecutiveClickCount: Int = 0
-    
-    // 感情モデル
-    var emotion: EmotionState = EmotionState()
-    
-    // ユーザー習慣学習用
-    var clickHistory: [Date] = []
-    
-    // 記念クリックの追跡
-    var lastCelebratedClickCount: Int = 0
-    
-    // アプリ起動履歴
-    var lastBootTime: Date? = nil
-    var totalBootCount: Int = 0
-    
-    // 初回セットアップ日時
-    var firstLaunchDate: Date? = nil
-    
-    /// 初期化時に初回起動日時を設定
-    init() {
-        let now = Date()
-        self.firstLaunchDate = now
-        self.lastBootTime = now
-        self.totalBootCount = 1
-    }
-}
 
 
 /// 簡単な状態管理クラス

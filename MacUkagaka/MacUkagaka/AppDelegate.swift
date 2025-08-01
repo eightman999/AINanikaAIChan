@@ -5,25 +5,25 @@
 import Cocoa
 import Foundation
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+public class AppDelegate: NSObject, NSApplicationDelegate {
     /// ゴーストのリソース管理とスクリプト処理を担当する。
     var ghostManager: GhostManager?
     /// キャラクターを表示するメインウィンドウ。
     var characterWindow: CharacterWindowController?
     
     /// アプリ起動後に呼び出されるエントリーポイント。
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    public func applicationDidFinishLaunching(_ notification: Notification) {
         setupApplication()
         loadGhost()
     }
     
     /// アプリ終了時に呼び出される。
-    func applicationWillTerminate(_ notification: Notification) {
+    public func applicationWillTerminate(_ notification: Notification) {
         ghostManager?.shutdown()
     }
     
     /// ウィンドウがなくてもアプリを終了させない。
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    public func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return false
     }
     
@@ -62,14 +62,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate: GhostManagerDelegate {
     /// ゴーストからさくらスクリプトを受信したときに呼ばれる。
-    func ghostManager(_ manager: GhostManager, didReceiveScript script: String) {
+    public func ghostManager(_ manager: GhostManager, didReceiveScript script: String) {
         DispatchQueue.main.async {
             self.characterWindow?.processScript(script)
         }
     }
     
     /// ゴーストでエラーが発生したときに呼ばれる。
-    func ghostManager(_ manager: GhostManager, didEncounterError error: Error) {
+    public func ghostManager(_ manager: GhostManager, didEncounterError error: Error) {
         DispatchQueue.main.async {
             self.showErrorAndExit("ゴーストエラー: \(error)")
         }

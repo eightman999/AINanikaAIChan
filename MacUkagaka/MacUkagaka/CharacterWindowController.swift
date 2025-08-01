@@ -5,7 +5,7 @@
 import Cocoa
 import Foundation
 
-class CharacterWindowController: NSWindowController {
+public class CharacterWindowController: NSWindowController {
     /// SHIORIとの通信を担当するマネージャ。
     private let ghostManager: GhostManager
     /// 現在のサーフェスを表示するイメージビュー。
@@ -24,7 +24,7 @@ class CharacterWindowController: NSWindowController {
     private var isProcessingScript = false
     
     /// 指定されたゴーストマネージャと紐づくウィンドウコントローラを生成。
-    init(ghostManager: GhostManager) {
+    public init(ghostManager: GhostManager) {
         self.ghostManager = ghostManager
         self.scriptParser = SakuraScriptParser()
         
@@ -152,7 +152,7 @@ class CharacterWindowController: NSWindowController {
     }
     
     /// SakuraScript文字列を解析して実行。
-    func processScript(_ script: String) {
+    public func processScript(_ script: String) {
         let actions = scriptParser.parse(script)
         actionQueue.append(contentsOf: actions)
         
@@ -297,7 +297,7 @@ class CharacterWindowController: NSWindowController {
 
 extension CharacterWindowController {
     /// キャラクターのマウスクリックをゴーストマネージャへ転送する。
-    override func mouseDown(with event: NSEvent) {
+    public override func mouseDown(with event: NSEvent) {
         guard window != nil else { return }
         
         let locationInWindow = event.locationInWindow

@@ -4,7 +4,7 @@
 
 import Foundation
 
-class SHIORIClient {
+public class SHIORIClient {
     /// ゴーストディレクトリへのパス。
     private let ghostPath: String
     /// SHIORI実行ファイルまたはスクリプトへのパス。
@@ -29,7 +29,7 @@ class SHIORIClient {
     }
     
     /// 指定されたゴーストパスとSHIORIパスでクライアントを生成。
-    init(ghostPath: String, shioriPath: String) {
+    public init(ghostPath: String, shioriPath: String) {
         self.ghostPath = ghostPath
         self.shioriPath = shioriPath
     }

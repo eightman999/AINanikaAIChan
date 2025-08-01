@@ -2,7 +2,7 @@ import Darwin
 import Foundation
 
 /// Manager for Fake Memory Object (FMO) compatible shared memory.
-class SharedFMO {
+public class SharedFMO {
   /// App Group identifier used for the shared container.
   static let groupID = "group.com.example.sstp"
 

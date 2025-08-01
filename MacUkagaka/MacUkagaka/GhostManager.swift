@@ -4,12 +4,12 @@
 
 import Foundation
 
-protocol GhostManagerDelegate: AnyObject {
+public protocol GhostManagerDelegate: AnyObject {
     func ghostManager(_ manager: GhostManager, didReceiveScript script: String)
     func ghostManager(_ manager: GhostManager, didEncounterError error: Error)
 }
 
-class GhostManager {
+public class GhostManager {
     /// スクリプトとエラー通知用のデリゲート。
     weak var delegate: GhostManagerDelegate?
     /// ゴーストリソースのルートパス。
@@ -50,14 +50,14 @@ class GhostManager {
     }
     
     /// 同梱のAINanikaAIChanゴーストを読み込む初期化。
-    init() throws {
+    public init() throws {
         self.ghostPath = try Self.getDefaultGhostPath()
         self.ghostInfo = try loadGhostInfo()
         self.shioriClient = SHIORIClient(ghostPath: ghostPath, shioriPath: ghostInfo!.shioriPath)
     }
     
     /// 後方互換用のイニシャライザ。
-    init(ghostPath: String) throws {
+    public init(ghostPath: String) throws {
         self.ghostPath = ghostPath
         self.ghostInfo = try loadGhostInfo()
         self.shioriClient = SHIORIClient(ghostPath: ghostPath, shioriPath: ghostInfo!.shioriPath)
@@ -91,7 +91,7 @@ class GhostManager {
     }
     
     /// SHIORI を起動し `OnBoot` を送信。
-    func start() throws {
+    public func start() throws {
         guard let shiori = shioriClient else {
             throw GhostError.initializationFailed
         }
@@ -112,7 +112,7 @@ class GhostManager {
     }
     
     /// `OnClose` を送信して SHIORI を終了。
-    func shutdown() {
+    public func shutdown() {
         randomTalkTimer?.invalidate()
         randomTalkTimer = nil
         
@@ -127,7 +127,7 @@ class GhostManager {
     }
     
     /// マウスクリックを SHIORI に通知。
-    func handleMouseClick(surfaceId: Int, x: Int, y: Int, button: Int) {
+    public func handleMouseClick(surfaceId: Int, x: Int, y: Int, button: Int) {
         guard let shiori = shioriClient else { return }
         
         do {
@@ -147,7 +147,7 @@ class GhostManager {
     }
     
     /// `OnSecondChange` をポーリング。
-    func handleSecondChange() {
+    public func handleSecondChange() {
         guard let shiori = shioriClient else { return }
         
         do {

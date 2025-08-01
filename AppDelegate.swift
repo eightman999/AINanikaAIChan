@@ -4,6 +4,7 @@
 
 import Cocoa
 import Foundation
+import MacUkagaka
 
 /// アプリケーション固有のエラータイプ
 enum AppError: LocalizedError {
@@ -27,9 +28,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Properties
     
     /// ゴーストのリソース管理とスクリプト処理を担当する。
-    var ghostManager: GhostManager?
+    var ghostManager: MacUkagakaGhostManager?
     /// キャラクターを表示するメインウィンドウ。
-    var characterWindow: CharacterWindowController?
+    var characterWindow: MacUkagakaCharacterWindowController?
     /// Ukagakaディレクトリの管理を担当する。
     var directoryManager: UkagakaDirectoryManager?
     /// SHIORIコードの変換とキャッシュを担当する。
@@ -131,7 +132,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         do {
             // UkagakaDirectoryManagerを使用してフォールバック対応のGhostManagerを作成
-            ghostManager = try GhostManager(directoryManager: directoryManager, useSwiftSHIORI: useSwiftSHIORI)
+            ghostManager = try MacUkagakaGhostManager()
             ghostManager?.delegate = self
             print("GhostManager initialized with UkagakaDirectoryManager and SwiftSHIORI: \(useSwiftSHIORI)")
             
@@ -217,7 +218,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate: GhostManagerDelegate {
     /// ゴーストからさくらスクリプトを受信したときに呼ばれる。
-    func ghostManager(_ manager: GhostManager, didReceiveScript script: String) {
+    func ghostManager(_ manager: MacUkagakaGhostManager, didReceiveScript script: String) {
         print("[AppDelegate] Received script from GhostManager: '\(script)'")
         DispatchQueue.main.async {
             print("[AppDelegate] Dispatching script to CharacterWindow: '\(script)'")
@@ -226,7 +227,7 @@ extension AppDelegate: GhostManagerDelegate {
     }
     
     /// ゴーストでエラーが発生したときに呼ばれる。
-    func ghostManager(_ manager: GhostManager, didEncounterError error: Error) {
+    func ghostManager(_ manager: MacUkagakaGhostManager, didEncounterError error: Error) {
         DispatchQueue.main.async {
             self.showErrorAndExit("ゴーストエラー: \(error)")
         }

@@ -5,9 +5,9 @@
 import Foundation
 
 /// SakuraScriptの字句解析で得られるトークン。
-struct SakuraScriptToken {
+public struct SakuraScriptToken {
     /// SakuraScriptに現れるトークン種別。
-    enum TokenType {
+    public enum TokenType {
         case text(String)
         case scopeSwitch(Int)
         case surfaceChange(Int)
@@ -18,13 +18,13 @@ struct SakuraScriptToken {
         case scriptEnd
     }
     
-    let type: TokenType
+    public let type: TokenType
 }
 
 /// 解析されたトークンから生成され、UIで実行されるアクション。
-struct SakuraScriptAction {
+public struct SakuraScriptAction {
     /// 実行可能なアクションの種類。
-    enum ActionType {
+    public enum ActionType {
         case displayText(String, scope: Int)
         case changeSurface(Int, scope: Int)
         case wait(Int)
@@ -32,15 +32,18 @@ struct SakuraScriptAction {
         case end
     }
     
-    let type: ActionType
+    public let type: ActionType
 }
 
-class SakuraScriptParser {
+public class SakuraScriptParser {
     /// 現在のスコープ(0は\h、1は\u)。
     private var currentScope: Int = 0
     
+    /// SakuraScriptParserを初期化
+    public init() {}
+    
     /// SakuraScript文字列を実行可能なアクションに変換する。
-    func parse(_ script: String) -> [SakuraScriptAction] {
+    public func parse(_ script: String) -> [SakuraScriptAction] {
         let tokens = tokenize(script)
         return generateActions(from: tokens)
     }

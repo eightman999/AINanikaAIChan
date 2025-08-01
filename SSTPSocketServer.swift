@@ -185,7 +185,7 @@ final class SSTPSocketServer {
     }
 
     func stop() throws {
-        try channels.map { $0.close() }.flatten().wait()
+        try EventLoopFuture.andAllComplete(channels.map { $0.close() }, on: group.next()).wait()
         try group.syncShutdownGracefully()
     }
 
@@ -193,25 +193,39 @@ final class SSTPSocketServer {
         let bootstrap = ServerBootstrap(group: group)
             .serverChannelOption(ChannelOptions.backlog, value: 256)
             .childChannelOption(ChannelOptions.socketOption(.so_reuseaddr), value: 1)
-            .childChannelInitializer { channel in
-                var handlers: [ChannelHandler] = [
+            .childChannelInitializer { (channel: Channel) -> EventLoopFuture<Void> in
+                // ChannelHandler は Existential なので any を付ける
+                var handlers: [any ChannelHandler] = [
                     LineBasedFrameDecoder(),
                     SSTPRequestDecoder(),
                     SSTPResponseEncoder(),
                     IdleStateHandler(readTimeout: .seconds(10)),
                     SSTPBusinessLogicHandler()
                 ]
+
                 if tls {
                     let configuration = TLSConfiguration.makeServerConfiguration(
                         certificateChain: [],
-                        privateKey: .privateKey(NIOSSLPrivateKeySource.privateKey(.generateRSA(bits: 2048)))
+                        privateKey: .privateKey(
+                            NIOSSLPrivateKeySource.privateKey(.generateRSA(bits: 2048))
+                        )
                     )
-                    let context = try! NIOSSLContext(configuration: configuration)
-                    let handler = NIOSSLServerHandler(context: context)
-                    handlers.insert(handler, at: 0)
+
+                    do {
+                        let context = try NIOSSLContext(configuration: configuration)
+                        let sslHandler = NIOSSLServerHandler(context: context)
+                        handlers.insert(sslHandler, at: 0)
+                    } catch {
+                        // makeFailedFuture の型が推論できないので Void を明示
+                        return channel.eventLoop.makeFailedFuture(error)
+                            as EventLoopFuture<Void>
+                    }
                 }
+
                 return channel.pipeline.addHandlers(handlers)
             }
+
         return bootstrap
     }
+
 }
