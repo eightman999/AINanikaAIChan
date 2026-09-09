@@ -1,4 +1,11 @@
 # AI何かちゃん & MacUkagaka
+
+> [!IMPORTANT]
+> **このリポジトリは2026-09-09をもって新規開発を終了した歴史的prototypeです。**
+> AI人格・永続性・推論resourceの設計知見は `eightman999/kamimusuhi` の `docs/legacy-project-distillation-2026-09-09.md` へ蒸留しました。伺か/macOS baseware互換の実装系譜は `eightman999/Ourin` 側を参照してください。
+>
+> 未完の旧ロードマップは再開予定なしとして閉じます。このrepoは実装の正典ではなく、旧実験・資産の参照用として残します。
+
 ![clang-format](https://github.com/eightman999/AINanikaAIChan/actions/workflows/clang-format.yml/badge.svg)
 ![swiftformat](https://github.com/eightman999/AINanikaAIChan/actions/workflows/swiftformat.yml/badge.svg)
 
