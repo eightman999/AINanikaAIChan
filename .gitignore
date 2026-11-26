@@ -7,3 +7,8 @@ ghost/master/log/
 MacUkagaka/.build/
 MacUkagaka/.swiftpm/
 .DS_Store
+
+# --- ignore cleanup 2026-11-26 ---
+OurinAIPlugin/products/
+
+OurinAIPlugin/.build/
